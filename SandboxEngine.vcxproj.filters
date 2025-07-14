@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Editor">
+      <UniqueIdentifier>{e5dc8a3a-3a0d-45d7-a154-acdd206bd0bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Runtime">
+      <UniqueIdentifier>{4beb0006-c87b-4b6f-a757-623e8cc7d587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Features">
+      <UniqueIdentifier>{57acfb37-359f-46b5-a124-581272b0aebd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
