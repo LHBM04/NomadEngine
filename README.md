@@ -1,6 +1,6 @@
 # Sandbox Engine
 
-![로고](../Resources/Logo.png)
+![로고](../Resources/Images/Logo.png)
 
 > **"Let's build the best sandcastle ever!"**
 
