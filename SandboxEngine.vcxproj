@@ -70,6 +70,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)\Binaries\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\Objects\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)\Binaries\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\Objects\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)\Binaries\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\Objects\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)\Binaries\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\Objects\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
     <VcpkgEnabled>false</VcpkgEnabled>
   </PropertyGroup>
@@ -81,11 +97,21 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Sources\External\Assimp\lib\Win32\Debug;$(ProjectDir)Sources\External\FMOD\lib\x86;$(ProjectDir)Sources\External\FreeGLUT\lib;$(ProjectDir)Sources\External\GLEW\lib\Release\Win32;$(ProjectDir)Sources\External\GLFW\lib\Win32\lib-vc2022</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mtd.lib;fmodL_vc.lib;freeglut.lib;glew32.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /D "$(ProjectDir)Sources\External\Assimp\lib\Win32\Debug\assimp-vc143-mtd.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\FMOD\lib\x86\fmodL.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\FreeGLUT\bin\freeglut.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\bin\Release\Win32\glew32.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\Win32\lib-vc2022\glfw3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -97,11 +123,22 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Sources\External\Assimp\lib\Win32\Release;$(ProjectDir)Sources\External\FMOD\lib\x86;$(ProjectDir)Sources\External\FreeGLUT\lib;$(ProjectDir)Sources\External\GLEW\lib\Release\Win32;$(ProjectDir)Sources\External\GLFW\lib\Win32\lib-vc2022</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mt.lib;fmod_vc.lib;freeglut.lib;glew32.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /D "$(ProjectDir)Sources\External\Assimp\lib\Win32\Release\assimp-vc143-mt.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\FMOD\lib\x86\fmod.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\FreeGLUT\bin\freeglut.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\bin\Release\Win32\glew32.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\Win32\lib-vc2022\glfw3.dll" "$(OutDir)"
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -111,11 +148,21 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Sources\External\Assimp\lib\x64\Debug;$(ProjectDir)Sources\External\FMOD\lib\x64;$(ProjectDir)Sources\External\FreeGLUT\lib\x64;$(ProjectDir)Sources\External\GLEW\lib\Release\x64;$(ProjectDir)Sources\External\GLFW\lib\x64\lib-vc2022</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mtd.lib;fmodL_vc.lib;freeglut.lib;glew32.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /D "$(ProjectDir)Sources\External\Assimp\lib\x64\Debug\assimp-vc143-mtd.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\FMOD\lib\x64\fmodL.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\FreeGLUT\bin\x64\freeglut.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\bin\Release\x64\glew32.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\x64\lib-vc2022\glfw3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -127,11 +174,21 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)Sources\External\Assimp\lib\x64\Release;$(ProjectDir)Sources\External\FMOD\lib\x64;$(ProjectDir)Sources\External\FreeGLUT\lib\x64;$(ProjectDir)Sources\External\GLEW\lib\Release\x64;$(ProjectDir)Sources\External\GLFW\lib\x64\lib-vc2022</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mt.lib;fmod_vc.lib;freeglut.lib;glew32.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /D "$(ProjectDir)Sources\External\Assimp\lib\x64\Release\assimp-vc143-mt.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\FMOD\lib\x64\fmod.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\FreeGLUT\bin\x64\freeglut.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\bin\Release\x64\glew32.dll" "$(OutDir)"
+xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\x64\lib-vc2022\glfw3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Sources\Runtime\SandboxMain.cpp" />
