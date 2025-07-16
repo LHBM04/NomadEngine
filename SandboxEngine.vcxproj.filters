@@ -11,4 +11,9 @@
       <UniqueIdentifier>{57acfb37-359f-46b5-a124-581272b0aebd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Sources\Runtime\SandboxMain.cpp">
+      <Filter>Runtime</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
