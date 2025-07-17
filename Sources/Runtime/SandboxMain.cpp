@@ -1,9 +1,5 @@
-﻿#include <windows.h>
-#include <GL/glew.h>
-#include <glfw3.h>
-#include <fmod.hpp>
-#include <GL/freeglut.h>
-#include <assimp/Importer.hpp>
+#include "Runtime/Common/SandboxHeader.h"
+#include "Runtime/Common/SandboxTypes.h"
 
 extern "C" int __argc;
 extern "C" char** __argv;
@@ -15,6 +11,8 @@ INT APIENTRY wWinMain(
     _In_ INT
 )
 {
+    Sandbox::FVOID Test = nullptr;
+
 	// OpenGL 라이브러리 링킹 테스트.
     glutInit(&__argc, __argv);
     glfwInit();

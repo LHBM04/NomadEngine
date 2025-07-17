@@ -97,7 +97,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources;$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -123,7 +123,7 @@ xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\Win32\lib-vc2022\glfw3.dll" 
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources;$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -148,7 +148,7 @@ xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\Win32\lib-vc2022\glfw3.dll" 
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources;$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -174,7 +174,7 @@ xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\x64\lib-vc2022\glfw3.dll" "$
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources;$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM\include;$(ProjectDir)Sources\External\ImGUI\include;$(ProjectDir)Sources\External\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -191,7 +191,47 @@ xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\x64\lib-vc2022\glfw3.dll" "$
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\Runtime\SandboxMain.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="Sources\Runtime\Application\ApplicationPCH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Runtime/Application/ApplicationPCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Runtime/Application/ApplicationPCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Runtime/Application/ApplicationPCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Runtime/Application/ApplicationPCH.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="Sources\Runtime\Common\SandboxHeader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Runtime/Common/SandboxHeader.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Runtime/Common/SandboxHeader.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Runtime/Common/SandboxHeader.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Runtime/Common/SandboxHeader.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="Sources\Runtime\Resources\ResourceBase.cpp" />
+    <ClCompile Include="Sources\Runtime\SandboxMain.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Runtime/Common/SandboxHeader.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Runtime/Common/SandboxHeader.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Runtime/Common/SandboxHeader.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Runtime/Common/SandboxHeader.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="Sources\Runtime\Application\ApplicationPCH.h" />
+    <ClInclude Include="Sources\Runtime\Application\WindowContextBase.h" />
+    <ClInclude Include="Sources\Runtime\Common\SandboxConfig.h" />
+    <ClInclude Include="Sources\Runtime\Common\SandboxHeader.h" />
+    <ClInclude Include="Sources\Runtime\Common\SandboxTypes.h" />
+    <ClInclude Include="Sources\Runtime\Resources\ResourceBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

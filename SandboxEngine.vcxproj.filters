@@ -10,10 +10,54 @@
     <Filter Include="Features">
       <UniqueIdentifier>{57acfb37-359f-46b5-a124-581272b0aebd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Runtime\Common">
+      <UniqueIdentifier>{51b1ca1d-8a80-475b-97ce-7e27992dcc7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Runtime\Resources">
+      <UniqueIdentifier>{8834fc7d-174e-430a-8068-c7495177e78d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Runtime\Application">
+      <UniqueIdentifier>{f2db45bd-1f14-4037-9355-dc96335c3f38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\Runtime\SandboxMain.cpp">
       <Filter>Runtime</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\Runtime\Common\SandboxHeader.cpp">
+      <Filter>Runtime\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Runtime\Resources\ResourceBase.cpp">
+      <Filter>Runtime\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Runtime\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Runtime\Application\ApplicationPCH.cpp">
+      <Filter>Runtime\Application</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sources\Runtime\Common\SandboxHeader.h">
+      <Filter>Runtime\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Runtime\Common\SandboxConfig.h">
+      <Filter>Runtime\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Runtime\Resources\ResourceBase.h">
+      <Filter>Runtime\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Runtime\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Runtime\Application\WindowContextBase.h">
+      <Filter>Runtime\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Runtime\Application\ApplicationPCH.h">
+      <Filter>Runtime\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Runtime\Common\SandboxTypes.h">
+      <Filter>Runtime\Common</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

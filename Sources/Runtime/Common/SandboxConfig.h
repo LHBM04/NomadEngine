@@ -1,0 +1,10 @@
+﻿#pragma once
+
+#define CRT_NO_SECURE_NO_WARNINGS
+
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+
+#define GLFW_INCLUDE_NONE
+#define GLFW_EXPOSE_NATIVE_WIN32
