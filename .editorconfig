@@ -1,0 +1,31 @@
+﻿root = true
+
+# 모든 파일 공통
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# C++ 소스 및 헤더 파일
+[*.{cpp,h,hpp,inl}]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+# Visual Studio 같은 환경에서 *.sln, *.vcxproj 는 indent 2 (가독성 위해)
+[*.{sln,vcxproj,vcxproj.filters}]
+indent_style = space
+indent_size = 2
+
+# Makefile, 빌드 스크립트는 탭
+[Makefile]
+indent_style = tab
+trim_trailing_whitespace = false
+
+# CMake 파일은 2칸 space (취향차 있음)
+[CMakeLists.txt]
+indent_style = space
+indent_size = 2
