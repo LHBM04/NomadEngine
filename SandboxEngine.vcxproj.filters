@@ -19,105 +19,10 @@
     <Filter Include="Runtime\Application">
       <UniqueIdentifier>{f2db45bd-1f14-4037-9355-dc96335c3f38}</UniqueIdentifier>
     </Filter>
-    <Filter Include="External">
-      <UniqueIdentifier>{2063cabe-d551-441c-aefa-6f07dc0c549e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="External\ImGuizmo">
-      <UniqueIdentifier>{7bffcd4d-7add-4874-b840-da8f7d77e28e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="External\ImGUI">
-      <UniqueIdentifier>{fcf912ec-4e12-4fcb-907d-b346425172f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="External\ImGUI\Backends">
-      <UniqueIdentifier>{1adbef1c-61aa-4a03-a337-48022ff0ee44}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\Editor\Main.cpp">
       <Filter>Editor</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\External\ImGuizmo\GraphEditor.cpp">
-      <Filter>External\ImGuizmo</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGuizmo\ImCurveEdit.cpp">
-      <Filter>External\ImGuizmo</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGuizmo\ImGradient.cpp">
-      <Filter>External\ImGuizmo</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGuizmo\ImGuizmo.cpp">
-      <Filter>External\ImGuizmo</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGuizmo\ImSequencer.cpp">
-      <Filter>External\ImGuizmo</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGUI\imgui.cpp">
-      <Filter>External\ImGUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGUI\imgui_draw.cpp">
-      <Filter>External\ImGUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGUI\imgui_tables.cpp">
-      <Filter>External\ImGUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGUI\imgui_widgets.cpp">
-      <Filter>External\ImGUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGUI\backends\imgui_impl_opengl3.cpp">
-      <Filter>External\ImGUI\Backends</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGUI\backends\imgui_impl_sdl2.cpp">
-      <Filter>External\ImGUI\Backends</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\External\ImGUI\backends\imgui_impl_win32.cpp">
-      <Filter>External\ImGUI\Backends</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Sources\External\ImGuizmo\GraphEditor.h">
-      <Filter>External\ImGuizmo</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGuizmo\ImCurveEdit.h">
-      <Filter>External\ImGuizmo</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGuizmo\ImGradient.h">
-      <Filter>External\ImGuizmo</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGuizmo\ImGuizmo.h">
-      <Filter>External\ImGuizmo</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGuizmo\ImSequencer.h">
-      <Filter>External\ImGuizmo</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGuizmo\ImZoomSlider.h">
-      <Filter>External\ImGuizmo</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGUI\imconfig.h">
-      <Filter>External\ImGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGUI\imgui.h">
-      <Filter>External\ImGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGUI\imgui_internal.h">
-      <Filter>External\ImGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGUI\imstb_rectpack.h">
-      <Filter>External\ImGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGUI\imstb_textedit.h">
-      <Filter>External\ImGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGUI\imstb_truetype.h">
-      <Filter>External\ImGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGUI\backends\imgui_impl_opengl3.h">
-      <Filter>External\ImGUI\Backends</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGUI\backends\imgui_impl_sdl2.h">
-      <Filter>External\ImGUI\Backends</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\External\ImGUI\backends\imgui_impl_win32.h">
-      <Filter>External\ImGUI\Backends</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

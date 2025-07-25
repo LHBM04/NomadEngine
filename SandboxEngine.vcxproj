@@ -87,7 +87,8 @@
     <IntDir>$(SolutionDir)Objects\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
-    <VcpkgEnabled>false</VcpkgEnabled>
+    <VcpkgEnabled>true</VcpkgEnabled>
+    <VcpkgEnableManifest>false</VcpkgEnableManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -97,18 +98,21 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)Sources\Editor;$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\core\inc;$(ProjectDir)Sources\External\FMOD\studio\inc;$(ProjectDir)Sources\External\FMOD\fsbank\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM;$(ProjectDir)Sources\External\ImGUI;$(ProjectDir)Sources\External\ImGuizmo;$(ProjectDir)Sources\External\SDL2\include;$(ProjectDir)Sources\External\SDL2\include\SDL2;$(ProjectDir)Sources\Features;$(ProjectDir)Sources\Runtime</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources\Editor;$(ProjectDir)Sources\Features;$(ProjectDir)Sources\Runtime</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)Sources\External\Assimp\lib\Win32\Debug;$(ProjectDir)Sources\External\FMOD\core\lib\x86;$(ProjectDir)Sources\External\FMOD\fsbank\lib\x86;$(ProjectDir)Sources\External\FMOD\studio\lib\x86;$(ProjectDir)Sources\External\FreeGLUT\lib\Win32\Debug;$(ProjectDir)Sources\External\GLEW\lib\Win32\Debug;$(ProjectDir)Sources\External\GLFW\lib\Win32;$(ProjectDir)Sources\External\SDL2\lib\Win32\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>assimp-vc143-mtd.lib;freeglutd.lib;glew32d.lib;glfw3.lib;SDL2d.lib;SDL2maind.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <PerUserRedirection>true</PerUserRedirection>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(ProjectDir)Sources\External\SDL2\lib\Win32\Debug\SDL2d.dll" "$(OutDir)"
-xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\lib\Win32\Debug\glew32d.dll" "$(OutDir)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -121,7 +125,7 @@ xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\lib\Win32\Debug\glew32d.dll" "$(
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)Sources\Editor;$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\core\inc;$(ProjectDir)Sources\External\FMOD\studio\inc;$(ProjectDir)Sources\External\FMOD\fsbank\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM;$(ProjectDir)Sources\External\ImGUI;$(ProjectDir)Sources\External\ImGuizmo;$(ProjectDir)Sources\External\SDL2\include;$(ProjectDir)Sources\External\SDL2\include\SDL2;$(ProjectDir)Sources\Features;$(ProjectDir)Sources\Runtime</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources\Editor;$(ProjectDir)Sources\Features;$(ProjectDir)Sources\Runtime</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -131,14 +135,11 @@ xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\lib\Win32\Debug\glew32d.dll" "$(
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>
       </AdditionalDependencies>
+      <PerUserRedirection>true</PerUserRedirection>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(ProjectDir)Sources\External\Assimp\lib\Win32\Release\assimp-vc143-mt.dll" "$(OutDir)"
-xcopy /Y /D "$(ProjectDir)Sources\External\FMOD\lib\x86\fmod.dll" "$(OutDir)"
-xcopy /Y /D "$(ProjectDir)Sources\External\FreeGLUT\bin\freeglut.dll" "$(OutDir)"
-xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\bin\Release\Win32\glew32.dll" "$(OutDir)"
-xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\Win32\lib-vc2022\glfw3.dll" "$(OutDir)"
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -149,18 +150,21 @@ xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\Win32\lib-vc2022\glfw3.dll" 
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)Sources\Editor;$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\core\inc;$(ProjectDir)Sources\External\FMOD\studio\inc;$(ProjectDir)Sources\External\FMOD\fsbank\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM;$(ProjectDir)Sources\External\ImGUI;$(ProjectDir)Sources\External\ImGuizmo;$(ProjectDir)Sources\External\SDL2\include;$(ProjectDir)Sources\External\SDL2\include\SDL2;$(ProjectDir)Sources\Features;$(ProjectDir)Sources\Runtime</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources\Editor;$(ProjectDir)Sources\Features;$(ProjectDir)Sources\Runtime</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)Sources\External\Assimp\lib\x64\Debug;$(ProjectDir)Sources\External\FMOD\core\lib\x64;$(ProjectDir)Sources\External\FMOD\fsbank\lib\x64;$(ProjectDir)Sources\External\FMOD\studio\lib\x64;$(ProjectDir)Sources\External\FreeGLUT\lib\x64\Debug;$(ProjectDir)Sources\External\GLEW\lib\x64\Debug;$(ProjectDir)Sources\External\GLFW\lib\x64;$(ProjectDir)Sources\External\SDL2\lib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>assimp-vc143-mtd.lib;freeglutd.lib;glew32d.lib;glfw3.lib;SDL2d.lib;SDL2maind.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <PerUserRedirection>true</PerUserRedirection>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(ProjectDir)Sources\External\SDL2\lib\x64\Debug\SDL2d.dll" "$(OutDir)"
-xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\lib\x64\Debug\glew32d.dll" "$(OutDir)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -173,7 +177,7 @@ xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\lib\x64\Debug\glew32d.dll" "$(Ou
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(ProjectDir)Sources\Editor;$(ProjectDir)Sources\External\Assimp\include;$(ProjectDir)Sources\External\FMOD\core\inc;$(ProjectDir)Sources\External\FMOD\studio\inc;$(ProjectDir)Sources\External\FMOD\fsbank\inc;$(ProjectDir)Sources\External\FreeGLUT\include;$(ProjectDir)Sources\External\GLEW\include;$(ProjectDir)Sources\External\GLFW\include;$(ProjectDir)Sources\External\GLM;$(ProjectDir)Sources\External\ImGUI;$(ProjectDir)Sources\External\ImGuizmo;$(ProjectDir)Sources\External\SDL2\include;$(ProjectDir)Sources\External\SDL2\include\SDL2;$(ProjectDir)Sources\Features;$(ProjectDir)Sources\Runtime</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Sources\Editor;$(ProjectDir)Sources\Features;$(ProjectDir)Sources\Runtime</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -183,46 +187,15 @@ xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\lib\x64\Debug\glew32d.dll" "$(Ou
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>
       </AdditionalDependencies>
+      <PerUserRedirection>true</PerUserRedirection>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y /D "$(ProjectDir)Sources\External\Assimp\lib\x64\Release\assimp-vc143-mt.dll" "$(OutDir)"
-xcopy /Y /D "$(ProjectDir)Sources\External\FMOD\lib\x64\fmod.dll" "$(OutDir)"
-xcopy /Y /D "$(ProjectDir)Sources\External\FreeGLUT\bin\x64\freeglut.dll" "$(OutDir)"
-xcopy /Y /D "$(ProjectDir)Sources\External\GLEW\bin\Release\x64\glew32.dll" "$(OutDir)"
-xcopy /Y /D "$(ProjectDir)Sources\External\GLFW\lib\x64\lib-vc2022\glfw3.dll" "$(OutDir)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Sources\Editor\Main.cpp" />
-    <ClCompile Include="Sources\External\ImGuizmo\GraphEditor.cpp" />
-    <ClCompile Include="Sources\External\ImGuizmo\ImCurveEdit.cpp" />
-    <ClCompile Include="Sources\External\ImGuizmo\ImGradient.cpp" />
-    <ClCompile Include="Sources\External\ImGuizmo\ImGuizmo.cpp" />
-    <ClCompile Include="Sources\External\ImGuizmo\ImSequencer.cpp" />
-    <ClCompile Include="Sources\External\ImGUI\backends\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="Sources\External\ImGUI\backends\imgui_impl_sdl2.cpp" />
-    <ClCompile Include="Sources\External\ImGUI\backends\imgui_impl_win32.cpp" />
-    <ClCompile Include="Sources\External\ImGUI\imgui.cpp" />
-    <ClCompile Include="Sources\External\ImGUI\imgui_draw.cpp" />
-    <ClCompile Include="Sources\External\ImGUI\imgui_tables.cpp" />
-    <ClCompile Include="Sources\External\ImGUI\imgui_widgets.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Sources\External\ImGuizmo\GraphEditor.h" />
-    <ClInclude Include="Sources\External\ImGuizmo\ImCurveEdit.h" />
-    <ClInclude Include="Sources\External\ImGuizmo\ImGradient.h" />
-    <ClInclude Include="Sources\External\ImGuizmo\ImGuizmo.h" />
-    <ClInclude Include="Sources\External\ImGuizmo\ImSequencer.h" />
-    <ClInclude Include="Sources\External\ImGuizmo\ImZoomSlider.h" />
-    <ClInclude Include="Sources\External\ImGUI\backends\imgui_impl_opengl3.h" />
-    <ClInclude Include="Sources\External\ImGUI\backends\imgui_impl_sdl2.h" />
-    <ClInclude Include="Sources\External\ImGUI\backends\imgui_impl_win32.h" />
-    <ClInclude Include="Sources\External\ImGUI\imconfig.h" />
-    <ClInclude Include="Sources\External\ImGUI\imgui.h" />
-    <ClInclude Include="Sources\External\ImGUI\imgui_internal.h" />
-    <ClInclude Include="Sources\External\ImGUI\imstb_rectpack.h" />
-    <ClInclude Include="Sources\External\ImGUI\imstb_textedit.h" />
-    <ClInclude Include="Sources\External\ImGUI\imstb_truetype.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
