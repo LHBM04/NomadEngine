@@ -1,0 +1,82 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build Debug",
+            "command": "D:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-mwindows",
+                "-fdiagnostics-color=always",
+                "-g",
+                "-ID:/vcpkg/installed/x64-mingw-static/include",
+                "-LD:/vcpkg/installed/x64-mingw-static/lib",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}_Debug.exe",
+                "-lSDL2",
+                "-limgui",
+                "-lglew32",
+                "-lopengl32",
+                "-limm32",
+                "-lgdi32",
+                "-ldinput8",
+                "-ldxguid",
+                "-lsetupapi",
+                "-lole32",
+                "-loleaut32",
+                "-luuid",
+                "-lwinmm",
+                "-lversion"
+            ],
+            "options": {
+                "cwd": "D:\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build with Debug symbols"
+        },
+        {
+            "type": "shell",
+            "label": "Build Release",
+            "command": "D:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-mwindows",
+                "-fdiagnostics-color=always",
+                "-O3",
+                "-ID:/vcpkg/installed/x64-mingw-static/include",
+                "-LD:/vcpkg/installed/x64-mingw-static/lib",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}_Release.exe",
+                "-lSDL2",
+                "-limgui",
+                "-lglew32",
+                "-lopengl32",
+                "-limm32",
+                "-lgdi32",
+                "-ldinput8",
+                "-ldxguid",
+                "-lsetupapi",
+                "-lole32",
+                "-loleaut32",
+                "-luuid",
+                "-lwinmm",
+                "-lversion"
+            ],
+            "options": {
+                "cwd": "D:\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Build optimized Release binary"
+        }
+    ]
+}

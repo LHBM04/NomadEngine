@@ -1,0 +1,34 @@
+# .clang-format
+
+BasedOnStyle: Google
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+ColumnLimit: 120
+BreakBeforeBraces: Allman
+
+AllowShortIfStatementsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: All
+AllowShortLoopsOnASingleLine: false
+
+DerivePointerAlignment: false
+PointerAlignment: Right
+
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+
+SortIncludes: false
+IncludeBlocks: Preserve
+
+SpaceBeforeParens: ControlStatements
+
+AlwaysBreakAfterReturnType: None
+BinPackParameters: false
+BinPackArguments: false
+
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+Cpp11BracedListStyle: true
+
+NamespaceIndentation: All

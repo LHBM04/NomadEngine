@@ -1,0 +1,24 @@
+name: Windows MinGW Build
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+
+jobs:
+  build-win:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup MSYS2 and MinGW
+        uses: msys2/setup-msys2@v2
+        with:
+          update: true
+          install: mingw-w64-x86_64-toolchain
+      - name: Configure project
+        run: cmake -G "MinGW Makefiles" -B build
+      - name: Build project
+        run: cmake --build build -- -j4
