@@ -1,232 +1,215 @@
-# Prerequisites
-*.d
+# ==========================================================
+# C/C++
+# ==========================================================
 
 # Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# debug information files
-*.dwo
-
-# Prerequisites
 *.d
-
-# Object files
-*.o
-*.ko
-*.obj
 *.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
 *.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
+*.ko
 *.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+*.o
+*.obj
+*.pch
+*.slo
 
 # Debug files
 *.dSYM/
-*.su
+*.dwo
 *.idb
 *.pdb
+*.su
+*.stackdump
+
+# Executables
+*.app
+*.exe
+*.hex
+*.i*86
+*.out
+*.x86_64
+
+# Fortran module files
+*.mod
+*.mod*
+*.smod
 
 # Kernel Module Compile Results
-*.mod*
-*.cmd
 .tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
 dkms.conf
+Mkfile.old
+Module.symvers
+modules.order
 
-# debug information files
-*.dwo
+# Linker files and output
+*.exp
+*.ilk
+*.la
+*.lai
+*.map
 
-CMakeLists.txt.user
+# Shared libraries / Dynamic link libraries
+*.a
+*.dll
+*.dylib
+*.lib
+*.so
+*.so.*
+
+# ==========================================================
+# CMake
+# ==========================================================
+
+# CMake build directories
+/[Bb]uild*/
+/[Cc][Mm]ake-[Bb]uild*/
+/[Oo]ut/
+
+# CMake files
 CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
-cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-_deps
+CMakeFiles/
+CMakeLists.txt.user
+CMakeScripts/
 CMakeUserPresets.json
+CTestTestfile.cmake
+Testing/
+_deps/
+cmake_install.cmake
+compile_commands.json
+install_manifest.txt
+Makefile
 
-# CLion
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#cmake-build-*
-# Covers JetBrains IDEs: IntelliJ, GoLand, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
-# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+# ==========================================================
+# JetBrains IDE
+# ==========================================================
 
-# User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
+# JetBrains IDE directories
+.idea/
+.idea/**
+
+# User-specific files
+.idea/**/aws.xml
+.idea/**/contentModel.xml
 .idea/**/dictionaries
 .idea/**/shelf
-
-# AWS User-specific
-.idea/**/aws.xml
-
-# Generated files
-.idea/**/contentModel.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/workspace.xml
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
 .idea/**/dataSources.ids
 .idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
+.idea/**/dynamic.xml
+.idea/**/sqlDataSources.xml
+.idea/**/uiDesigner.xml
 
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
 
-# Gradle and Maven with auto-import
-# When using Gradle or Maven with auto-import, you should exclude module files,
-# since they will be recreated, and may cause churn.  Uncomment if using
-# auto-import.
-# .idea/artifacts
-# .idea/compiler.xml
-# .idea/jarRepositories.xml
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
-# *.iml
-# *.ipr
-
-# CMake
-cmake-build-*/
-
-# Mongo Explorer plugin
-.idea/**/mongoSettings.xml
-
-# File-based project format
-*.iws
-
-# IntelliJ
-out/
-
-# mpeltonen/sbt-idea plugin
-.idea_modules/
-
-# JIRA plugin
-atlassian-ide-plugin.xml
-
-# Cursive Clojure plugin
-.idea/replstate.xml
-
-# SonarLint plugin
-.idea/sonarlint/
-.idea/sonarlint.xml # see https://community.sonarsource.com/t/is-the-file-idea-idea-idea-sonarlint-xml-intended-to-be-under-source-control/121119
-
-# Crashlytics plugin (for Android Studio and IntelliJ)
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
-
-# Editor-based HTTP Client
-.idea/httpRequests
-http-client.private.env.json
-
-# Android studio 3.1+ serialized cache file
-.idea/caches/build_file_checksums.ser
-
-# Apifox Helper cache
+# Other JetBrains files
 .idea/.cache/.Apifox_Helper
 .idea/ApifoxUploaderProjectSetting.xml
+.idea/caches/build_file_checksums.ser
+.idea/httpRequests/
+.idea/replstate.xml
+.idea/sonarlint/
+.idea/sonarlint.xml
+.idea_modules/
+*.iws
+atlassian-ide-plugin.xml
+cmake-build-*/
+com_crashlytics_export_strings.xml
+crashlytics-build.properties
+crashlytics.properties
+fabric.properties
+http-client.private.env.json
+out/
 
+# ==========================================================
+# Ninja
+# ==========================================================
+
+# Ninja build files
 .ninja_deps
 .ninja_log
+*.ninja
 
-.vscode/*
+# ==========================================================
+# Visual Studio
+# ==========================================================
+
+# Visual Studio directories
+.vs/
+.vs/**
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+ipch/
+
+# Visual Studio files
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+*.psess
+*.vsp
+*.vspx
+*.vssscc
+*.scc
+
+# Visual Studio temporary files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vc.db
+*.vc.db-shm
+*.vc.db-wal
+
+# ==========================================================
+# Visual Studio Code
+# ==========================================================
+
+# VS Code directories
+.vscode/
+.vscode/**
+
+# Keep specific VS Code files if needed
+!.vscode/*.code-snippets
+!.vscode/extensions.json
+!.vscode/launch.json
 !.vscode/settings.json
 !.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
 !*.code-workspace
 
-# Built Visual Studio Code Extensions
+# VS Code files
 *.vsix
 
+# ==========================================================
+# Windows specific
+# ==========================================================
+
 # Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
+$RECYCLE.BIN/
+[Dd]esktop.ini
 ehthumbs.db
 ehthumbs_vista.db
-
-# Dump file
-*.stackdump
-
-# Folder config file
-[Dd]esktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+Thumbs.db
+Thumbs.db:encryptable
 
 # Windows Installer files
 *.cab
@@ -237,3 +220,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# ==========================================================
+# Binaries directory
+# ==========================================================
+
+# Generated binary output
+/[Bb]inaries/
+/[Bb]inaries/**
