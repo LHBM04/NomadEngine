@@ -70,7 +70,13 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 
 # Include directories
 target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_SOURCE_DIR}/Sources/Runtime
+    ${CMAKE_SOURCE_DIR}/Sources/Editor
     ${EXTERNAL_INCLUDES}
+)
+
+# Add SDL3 specific include path
+target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE
     ${EXTERNAL_INCLUDES}/SDL3
 )
 
@@ -81,6 +87,48 @@ target_link_libraries(${PROJECT_NAME}
     # SDL3 library
     $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/SDL3-static.lib>
     $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/SDL3-static.lib>
+
+    # ImGui library and its dependencies
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/imguid.lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/imgui.lib>
+
+    # ImGuizmo
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/imguizmo.lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/imguizmo.lib>
+
+    # FreeType
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/freetyped.lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/freetype.lib>
+
+    # PlutoSVG and PlutoVG
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/plutosvg.lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/plutosvg.lib>
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/plutovg.lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/plutovg.lib>
+
+    # libpng
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/libpng16d.lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/libpng16.lib>
+
+    # zlib
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/zlibd.lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/zlib.lib>
+
+    # brotli
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/brotlidec.lib>
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/brotlicommon.lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/brotlidec.lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/brotlicommon.lib>
+
+    # bzip2
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/bz2d.lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/bz2.lib>
+
+    # OpenGL
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/OpenGL32.Lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/OpenGL32.Lib>
+    $<$<CONFIG:Debug>:${EXTERNAL_LIBS_DEBUG}/GlU32.Lib>
+    $<$<CONFIG:Release>:${EXTERNAL_LIBS_RELEASE}/GlU32.Lib>
 
     # Windows system libraries
     user32 gdi32 winmm imm32 ole32 oleaut32
