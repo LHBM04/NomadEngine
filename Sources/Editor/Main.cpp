@@ -104,13 +104,8 @@ int _stdcall main(int argc_, char** argv_)
     ImGui_ImplSDL3_InitForSDLRenderer(gWindowContext, gRendererContext);
     ImGui_ImplSDLRenderer3_Init(gRendererContext);
 
-    if (Run())
-    {
-        CleanUp();
-        return 0;
-    }
-
-    return -1;
+    Run();
+    CleanUp();
 }
 
 bool _stdcall InitializeWindow()
@@ -124,8 +119,6 @@ bool _stdcall InitializeWindow()
     if (ISNULL(gWindowContext))
     {
         PRINT_ERROR(TEXT("Failed to create SDL window"));
-        // std::wcerr << TEXT("Failed to create SDL window\n");
-        // std::wcerr << TEXT("Error: ") << SDL_GetError() << TEXT("\n");
         return false;
     }
 
@@ -142,8 +135,6 @@ bool _stdcall InitializeRenderer()
     if (ISNULL(gRendererContext))
     {
         PRINT_ERROR(TEXT("Failed to create SDL Renderer"));
-        // std::wcerr << TEXT("Failed to create SDL Renderer\n");
-        // std::wcerr << TEXT("Error: ") << SDL_GetError() << TEXT("\n");
         return false;
     }
 
@@ -234,7 +225,7 @@ bool _stdcall Run()
             }
             if (ImGui::BeginMenu("창"))
             {
-                ImGui::MenuItem("도킹 사용", NULL, &dockspaceOpen);
+                ImGui::MenuItem("도킹 사용", nullptr, &dockspaceOpen);
                 ImGui::EndMenu();
             }
             ImGui::EndMenuBar();
@@ -370,17 +361,17 @@ bool _stdcall Run()
         ImGui::Text("게임 화면이 여기에 표시됩니다");
 
         // 게임 뷰 컨트롤
-        if (ImGui::Button("▶️ 플레이"))
+        if (ImGui::Button("플레이"))
         {
             // 게임 시작 로직
         }
         ImGui::SameLine();
-        if (ImGui::Button("⏸️ 일시정지"))
+        if (ImGui::Button("일시정지"))
         {
             // 게임 일시정지 로직
         }
         ImGui::SameLine();
-        if (ImGui::Button("⏹️ 정지"))
+        if (ImGui::Button("정지"))
         {
             // 게임 정지 로직
         }
