@@ -4,7 +4,7 @@
 namespace NomadEngine::Editor
 {
     template<typename T>
-    inline T& SingletonBase<T>::GetInstance()
+    inline T& Editor::SingletonBase<T>::GetInstance()
     {
         static T instance; // 정적 인스턴스 생성
         return instance;   // 인스턴스 반환

@@ -1,6 +1,1 @@
-#include "ResourceManager.h"
-
-namespace NomadRuntime {
-namespace Resources {
-} // Resources
-} // NomadRuntime
+#include "../Resources/ResourceManager.h"

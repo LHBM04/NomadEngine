@@ -10,7 +10,6 @@
 #include <imgui.h>
 #include <imgui_impl_sdl3.h>
 #include <imgui_impl_sdlrenderer3.h>
-#include <ImGuizmo.h>
 
 // 매크로 정의
 #define UNREFERENCED_PARAMETER(P) (P)   // 사용되지 않는 매개변수 경고 방지
@@ -106,6 +105,8 @@ int _stdcall main(int argc_, char** argv_)
 
     Run();
     CleanUp();
+
+    return 0;
 }
 
 bool _stdcall InitializeWindow()

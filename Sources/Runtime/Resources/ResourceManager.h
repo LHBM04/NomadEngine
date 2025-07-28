@@ -1,24 +1,20 @@
 #ifndef RESOURCEMANAGER_H
 #define RESOURCEMANAGER_H
 
-#include <memory>
-#include <string>
-#include <string_view>
-#include <unordered_map>
+#include "Utilities/SingletonBase.h"
 
-class ResourceManager
+namespace NomadEngine::Runtime
 {
-public:
     /**
-     * @brief 생성자.
+     * @class ResourceManager
+     *
+     * @brief 리소스 관리자의 기본 클래스를 정의합니다.
      */
-    ResourceManager();
-
- /**
-  * @brief 소멸자.
-  */
-    ~ResourceManager();
-
-};
+    class ResourceManager
+        : public SingletonBase<ResourceManager>
+    {
+        
+    };
+}
 
 #endif //RESOURCEMANAGER_H

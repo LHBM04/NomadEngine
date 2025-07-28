@@ -4,42 +4,46 @@
 #include <string>
 #include <string_view>
 
-class ResourceBase
+namespace NomadEngine::Runtime
 {
-public:
     /**
-     * @brief 생성자.
-     */
-    ResourceBase();
-
-    /**
-     * @brief 소멸자.
-     */
-    virtual ~ResourceBase();
-
-    /**
-     * @brief
+     * @class ResourceBase
      *
-     * @param fileName
-     * @param filePath
-     *
-     * @return
+     * @brief 리소스.
      */
-    virtual bool Load(
-        std::string_view fileName,
-        std::string_view filePath) = 0;
+    class ResourceBase
+    {
+    public:
+        /**
+         * @brief 소멸자.
+         */
+        virtual ~ResourceBase();
 
-private:
-    /**
-     * @brief 해당 리소스의 이름.
-     */
-    std::wstring name;
+        /**
+         * @brief 리소스를 로드합니다.
+         *
+         * @param fileName 리소스 이름.
+         * @param filePath 리소스 경로.
+         *
+         * @return bool 성공하면 true, 실패하면 false를 반환합니다.
+         */
+        virtual bool Load(
+            std::string_view fileName,
+            std::string_view filePath) = 0;
 
-    /**
-     * @brief 해당 리소스의 위치.
-     */
-    std::wstring path;
+    private:
+        /**
+         * @brief 해당 리소스의 이름.
+         */
+        std::wstring name;
 
-};
+        /**
+         * @brief 해당 리소스의 위치.
+         */
+        std::wstring path;
+
+    };
+
+}
 
 #endif //RESOURCEBASE_H
