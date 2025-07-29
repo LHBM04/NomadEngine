@@ -1,0 +1,359 @@
+=========================
+Assimp LICENSE
+=========================
+Open Asset Import Library (assimp)
+Copyright (c) 2006-2021, assimp team
+All rights reserved.
+
+Redistribution and use of this software in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+* Neither the name of the assimp team, nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission of the assimp team.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+=========================
+Brotli LICENSE
+=========================
+Copyright (c) 2009, 2010, 2013-2016 by the Brotli Authors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+=========================
+DirectX Math LICENSE
+=========================
+MIT License
+
+Copyright (c) Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+=========================
+DirectX Mesh LICENSE
+=========================
+MIT License
+
+Copyright (c) Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+=========================
+DirectX Tex LICENSE
+=========================
+MIT License
+
+Copyright (c) Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+=========================
+DirectX Tool Kit 12 LICENSE
+=========================
+MIT License
+
+Copyright (c) Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+=========================
+Draco LICENSE
+=========================
+Apache License
+Version 2.0, January 2004
+http://www.apache.org/licenses/
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+... (전문은 Apache 2.0 LICENSE에서 복사)
+
+=========================
+FMOD LICENSE
+=========================
+FMOD은 상업적/비상업적 용도에 따라 별도의 라이선스(EULA)가 적용됩니다. 자세한 내용은 https://www.fmod.com/legal 및 https://www.fmod.com/licensing 참조.
+
+Third-Party Libraries and Their Licenses
+==========================================
+
+This file contains the licenses for all third-party libraries used in the NomadEngine project.
+All libraries are listed in alphabetical order.
+
+1. Assimp (Open Asset Import Library)
+   - License: BSD 3-Clause License
+   - Repository: https://github.com/assimp/assimp
+   - Description: A library to import and export various 3D-model-formats
+
+2. Brotli
+   - License: MIT License
+   - Repository: https://github.com/google/brotli
+   - Description: A generic-purpose lossless compression algorithm
+
+3. BZip2
+   - License: BZip2 License (BSD-style)
+   - Repository: https://sourceforge.net/projects/bzip2/
+   - Description: A freely available, patent free, high-quality data compressor
+
+4. DirectX Math
+   - License: MIT License
+   - Repository: https://github.com/Microsoft/DirectXMath
+   - Description: DirectXMath is an all inline SIMD C++ linear algebra library
+
+5. DirectX Mesh
+   - License: MIT License
+   - Repository: https://github.com/Microsoft/DirectXMesh
+   - Description: DirectXMesh geometry processing library
+
+6. DirectX Tex
+   - License: MIT License
+   - Repository: https://github.com/Microsoft/DirectXTex
+   - Description: DirectXTex texture processing library
+
+7. DirectX Tool Kit 12
+   - License: MIT License
+   - Repository: https://github.com/Microsoft/DirectXTK12
+   - Description: A collection of helper classes for writing DirectX 12 code in C++
+
+8. Draco
+   - License: Apache License 2.0
+   - Repository: https://github.com/google/draco
+   - Description: A library for compressing and decompressing 3D geometric meshes and point clouds
+
+9. FMT
+   - License: MIT License
+   - Repository: https://github.com/fmtlib/fmt
+   - Description: A modern formatting library
+
+10. FMOD
+    - License: FMOD Commercial License / FMOD Free License
+    - Website: https://www.fmod.com/
+    - Description: Audio engine and tools
+
+11. FreeType
+    - License: FreeType License (BSD-style)
+    - Repository: https://github.com/freetype/freetype
+    - Description: A freely available software library to render fonts
+
+12. GLFW
+    - License: zlib/libpng License
+    - Repository: https://github.com/glfw/glfw
+    - Description: A multi-platform library for OpenGL, OpenGL ES and Vulkan development
+
+13. GLM (OpenGL Mathematics)
+    - License: MIT License
+    - Repository: https://github.com/g-truc/glm
+    - Description: Header only C++ mathematics library for graphics software
+
+14. Dear ImGui
+    - License: MIT License
+    - Repository: https://github.com/ocornut/imgui
+    - Description: Bloat-free Graphical User interface for C++ with minimal dependencies
+
+15. ImGuizmo
+    - License: MIT License
+    - Repository: https://github.com/CedricGuillemet/ImGuizmo
+    - Description: Immediate mode 3D gizmo for scene editing and other controls
+
+16. KubaZip
+    - License: Unlicense (Public Domain)
+    - Repository: https://github.com/kuba--/zip
+    - Description: A portable, simple zip library written in C
+
+17. libpng
+    - License: PNG Reference Library License (libpng License)
+    - Repository: https://github.com/glennrp/libpng
+    - Description: The official PNG reference library
+
+18. MiniZip
+    - License: zlib License
+    - Repository: https://github.com/madler/zlib (part of zlib)
+    - Description: Mini zip and unzip based on zlib
+
+19. OpenAL
+    - License: LGPL 2.1
+    - Repository: https://github.com/kcat/openal-soft
+    - Description: A cross-platform 3D audio API
+
+20. PlutoSVG
+    - License: MIT License
+    - Repository: https://github.com/sammycage/plutosvg
+    - Description: A lightweight SVG rendering library
+
+21. PlutoVG
+    - License: MIT License
+    - Repository: https://github.com/sammycage/plutovg
+    - Description: A standalone 2D vector graphics library
+
+22. Poly2Tri
+    - License: BSD 3-Clause License
+    - Repository: https://github.com/jhasse/poly2tri
+    - Description: A 2D constrained Delaunay triangulation library
+
+23. Polyclipping (Clipper)
+    - License: Boost Software License 1.0
+    - Repository: https://github.com/AngusJohnson/Clipper2
+    - Description: An open source freeware polygon clipping library
+
+24. PugiXML
+    - License: MIT License
+    - Repository: https://github.com/zeux/pugixml
+    - Description: Light-weight, simple and fast XML parser for C++
+
+25. RapidJSON
+    - License: MIT License
+    - Repository: https://github.com/Tencent/rapidjson
+    - Description: A fast JSON parser/generator for C++
+
+26. SDL3 (Simple DirectMedia Layer)
+    - License: zlib License
+    - Repository: https://github.com/libsdl-org/SDL
+    - Description: A cross-platform development library
+
+27. STB (Sean Barrett's Libraries)
+    - License: MIT License / Public Domain
+    - Repository: https://github.com/nothings/stb
+    - Description: Single-file public domain libraries for C/C++
+
+28. UTF8-CPP
+    - License: Boost Software License 1.0
+    - Repository: https://github.com/nemtrif/utfcpp
+    - Description: UTF-8 with C++ in a Portable Way
+
+29. zlib
+    - License: zlib License
+    - Repository: https://github.com/madler/zlib
+    - Description: A massively spiffy yet delicately unobtrusive compression library
+
+License Texts
+=============
+
+MIT License
+-----------
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+BSD 3-Clause License
+--------------------
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Apache License 2.0
+-------------------
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+zlib License
+------------
+This software is provided 'as-is', without any express or implied
+warranty. In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it
+freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not
+   claim that you wrote the original software. If you use this software
+   in a product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
+
+2. Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+
+3. This notice may not be removed or altered from any source distribution.
+
+Boost Software License 1.0
+---------------------------
+Permission is hereby granted, free of charge, to any person or organization
+obtaining a copy of the software and accompanying documentation covered by
+this license (the "Software") to use, reproduce, display, distribute,
+execute, and transmit the Software, and to prepare derivative works of the
+Software, and to permit third-parties to whom the Software is furnished to
+do so, all subject to the following:
+
+The copyright notices in the Software and this entire statement, including
+the above license grant, this restriction and the following disclaimer,
+must be included in all copies of the Software, in whole or in part, and
+all derivative works of the Software, unless such copies or derivative
+works are solely in the form of machine-executable object code generated by
+a source language processor.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+Notes:
+------
+- Some libraries may have additional requirements or notices. Please refer to their respective repositories for complete license information.
+- FMOD requires a commercial license for commercial use. For non-commercial use, the FMOD Free License applies.
+- This list is based on the header files found in the External/Includes directory as of the date this file was created.
+- Always verify the latest license terms from the official sources before distribution.
+
+Last Updated: 2025-07-29
