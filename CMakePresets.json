@@ -1,99 +1,54 @@
 {
-  "version": 3,
-  "configurePresets": [
-    {
-      "name": "Debug/x64",
-      "displayName": "Windows MSVC Debug x64 (Clang-cl + Ninja)",
-      "description": "CMake Preset for building on Windows in Debug mode with Clang-cl toolchain using Ninja",
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/Binaries/${presetName}",
-      "architecture": {
-        "value": "x64",
-        "strategy": "external"
-      },
-      "toolset": {
-        "value": "ClangCL",
-        "strategy": "external"
-      },
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_C_COMPILER": "clang-cl",
-        "CMAKE_CXX_COMPILER": "clang-cl",
-        "CMAKE_MAKE_PROGRAM": "D:/ninja/ninja.exe",
-        "CMAKE_C_COMPILER_FRONTEND_VARIANT": "MSVC",
-        "CMAKE_CXX_COMPILER_FRONTEND_VARIANT": "MSVC"
-      },
-      "vendor": {
-        "microsoft.com/VisualStudioSettings/CMake/1.0": {
-          "hostOS": ["Windows"]
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "vs2022-debug-x64",
+            "displayName": "Visual Studio 2022 Debug x64",
+            "description": "Visual Studio 2022 Debug configuration for x64 platform",
+            "generator": "Visual Studio 17 2022",
+            "architecture": "x64",
+            "binaryDir": "${sourceDir}/Build/VS2022/vs2022-debug-x64",
+            "cacheVariables": {
+                "CMAKE_CONFIGURATION_TYPES": "Debug;Release;MinSizeRel;RelWithDebInfo",
+                "CMAKE_CXX_STANDARD": "20",
+                "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            },
+            "environment": {
+                "VCPKG_TARGET_ARCHITECTURE": "x64"
+            }
+        },
+        {
+            "name": "vs2022-release-x64",
+            "displayName": "Visual Studio 2022 Release x64",
+            "description": "Visual Studio 2022 Release configuration for x64 platform",
+            "generator": "Visual Studio 17 2022",
+            "architecture": "x64",
+            "binaryDir": "${sourceDir}/Build/VS2022/vs2022-release-x64",
+            "cacheVariables": {
+                "CMAKE_CONFIGURATION_TYPES": "Debug;Release;MinSizeRel;RelWithDebInfo",
+                "CMAKE_CXX_STANDARD": "20",
+                "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            },
+            "environment": {
+                "VCPKG_TARGET_ARCHITECTURE": "x64"
+            }
         }
-      }
-    },
-    {
-      "name": "Release/x64",
-      "displayName": "Windows MSVC Release x64 (Clang-cl + Ninja)",
-      "description": "CMake Preset for building on Windows in Release mode with Clang-cl toolchain using Ninja",
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/Binaries/${presetName}",
-      "architecture": {
-        "value": "x64",
-        "strategy": "external"
-      },
-      "toolset": {
-        "value": "ClangCL",
-        "strategy": "external"
-      },
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release",
-        "CMAKE_C_COMPILER": "clang-cl",
-        "CMAKE_CXX_COMPILER": "clang-cl",
-        "CMAKE_MAKE_PROGRAM": "D:/ninja/ninja.exe",
-        "CMAKE_C_COMPILER_FRONTEND_VARIANT": "MSVC",
-        "CMAKE_CXX_COMPILER_FRONTEND_VARIANT": "MSVC"
-      },
-      "vendor": {
-        "microsoft.com/VisualStudioSettings/CMake/1.0": {
-          "hostOS": ["Windows"]
+    ],
+    "buildPresets": [
+        {
+            "name": "vs2022-debug-x64-build",
+            "displayName": "Build Debug x64",
+            "configurePreset": "vs2022-debug-x64",
+            "configuration": "Debug"
+        },
+        {
+            "name": "vs2022-release-x64-build",
+            "displayName": "Build Release x64",
+            "configurePreset": "vs2022-release-x64",
+            "configuration": "Release"
         }
-      }
-    },
-    {
-      "name": "vs2022-debug-x64",
-      "displayName": "Visual Studio 2022 Debug x64",
-      "description": "Visual Studio 2022 Debug configuration for x64",
-      "generator": "Visual Studio 17 2022",
-      "binaryDir": "${sourceDir}/Build/VS2022/${presetName}",
-      "architecture": {
-        "value": "x64",
-        "strategy": "external"
-      },
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      },
-      "vendor": {
-        "microsoft.com/VisualStudioSettings/CMake/1.0": {
-          "hostOS": ["Windows"]
-        }
-      }
-    },
-    {
-      "name": "vs2022-release-x64",
-      "displayName": "Visual Studio 2022 Release x64",
-      "description": "Visual Studio 2022 Release configuration for x64",
-      "generator": "Visual Studio 17 2022",
-      "binaryDir": "${sourceDir}/Build/VS2022/${presetName}",
-      "architecture": {
-        "value": "x64",
-        "strategy": "external"
-      },
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
-      },
-      "vendor": {
-        "microsoft.com/VisualStudioSettings/CMake/1.0": {
-          "hostOS": ["Windows"]
-        }
-      }
-    }
-  ]
+    ]
 }
+

@@ -1,122 +1,61 @@
 @echo off
-echo ================================================
-echo Visual Studio 2022 Project Generator for NomadEngine
-echo ================================================
+REM VS2022 프로젝트 생성 배치 파일
+REM NomadEngine VS2022 프로젝트를 생성하고 External 라이브러리를 포함합니다.
 
-cd /d "%~dp0\.."
+setlocal enabledelayedexpansion
 
-echo.
-echo Checking for Visual Studio 2022...
-where devenv >nul 2>&1
-if %errorlevel% neq 0 (
-    echo Warning: Visual Studio 2022 not found in PATH
-    echo Make sure Visual Studio 2022 is installed
+set "CONFIG=%~1"
+set "PLATFORM=%~2"
+
+if "%CONFIG%"=="" set "CONFIG=Debug"
+if "%PLATFORM%"=="" set "PLATFORM=x64"
+
+echo NomadEngine VS2022 프로젝트 생성 중...
+echo 구성: %CONFIG%
+echo 플랫폼: %PLATFORM%
+
+REM 스크립트 실행 위치를 프로젝트 루트로 변경
+cd /d "%~dp0.."
+
+REM 빌드 디렉토리 설정
+set "BUILD_DIR=Build\VS2022\vs2022-debug-x64"
+
+echo CMake 구성 중...
+
+REM CMake 프리셋 확인 - 올바른 위치에서 실행
+cd /d "%~dp0.."
+
+REM CMake 프리셋 사용
+if exist "CMakePresets.json" (
+    echo CMake 프리셋 사용 중...
+    cmake --preset vs2022-debug-x64
+) else (
+    REM 수동 CMake 구성
+    mkdir "%BUILD_DIR%" 2>nul
+    cd /d "%BUILD_DIR%"
+    cmake -G "Visual Studio 17 2022" -A %PLATFORM% -DCMAKE_BUILD_TYPE=%CONFIG% -DCMAKE_CONFIGURATION_TYPES=Debug;Release -DCMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD=ON "..\..\..\"
 )
 
-echo.
-echo Verifying External Libraries...
-if not exist "Sources\External\Includes" (
-    echo Error: Missing External\Includes directory
-    goto :error
-)
-if not exist "Sources\External\Libraries\Debug" (
-    echo Error: Missing External\Libraries\Debug directory
-    goto :error
-)
-if not exist "Sources\External\Libraries\Release" (
-    echo Error: Missing External\Libraries\Release directory
-    goto :error
-)
+if %ERRORLEVEL% equ 0 (
+    echo.
+    echo ✓ VS2022 프로젝트 생성 완료!
+    echo 프로젝트 위치: %BUILD_DIR%
+    echo 솔루션 파일: %BUILD_DIR%\NomadEngine.sln
+    echo.
 
-echo External library directories verified successfully
-
-echo.
-echo Cleaning old CMake cache...
-if exist "Build\VS2022\vs2022-debug-x64\CMakeCache.txt" del "Build\VS2022\vs2022-debug-x64\CMakeCache.txt"
-if exist "Build\VS2022\vs2022-debug-x64\CMakeFiles" rmdir /s /q "Build\VS2022\vs2022-debug-x64\CMakeFiles"
-if exist "Build\VS2022\vs2022-release-x64\CMakeCache.txt" del "Build\VS2022\vs2022-release-x64\CMakeCache.txt"
-if exist "Build\VS2022\vs2022-release-x64\CMakeFiles" rmdir /s /q "Build\VS2022\vs2022-release-x64\CMakeFiles"
-
-echo.
-echo Generating Visual Studio 2022 Debug project...
-cmake --preset vs2022-debug-x64
-if %errorlevel% neq 0 (
-    echo Error: Failed to generate Debug project
-    goto :error
-)
-
-echo.
-echo Generating Visual Studio 2022 Release project...
-cmake --preset vs2022-release-x64
-if %errorlevel% neq 0 (
-    echo Error: Failed to generate Release project
-    goto :error
-)
-
-echo.
-echo Verifying project configuration...
-if exist "Build\VS2022\vs2022-debug-x64\NomadEngine.vcxproj" (
-    findstr /c:"Sources\\External\\Includes" "Build\VS2022\vs2022-debug-x64\NomadEngine.vcxproj" >nul
-    if %errorlevel% equ 0 (
-        echo ✓ External includes properly configured in Debug project
-    ) else (
-        echo Warning: External includes may not be properly configured
+    REM 솔루션 파일 열기 옵션
+    if exist "%BUILD_DIR%\NomadEngine.sln" (
+        set /p OPEN_SOLUTION="Visual Studio에서 솔루션을 여시겠습니까? (y/n): "
+        if /i "!OPEN_SOLUTION!"=="y" (
+            start "%BUILD_DIR%\NomadEngine.sln"
+        )
     )
-
-    findstr /c:"Sources\\External\\Libraries" "Build\VS2022\vs2022-debug-x64\NomadEngine.vcxproj" >nul
-    if %errorlevel% equ 0 (
-        echo ✓ External libraries properly configured in Debug project
-    ) else (
-        echo Warning: External libraries may not be properly configured
-    )
+) else (
+    echo.
+    echo ✗ 프로젝트 생성 실패!
+    pause
+    exit /b 1
 )
 
-echo.
-echo ================================================
-echo Project generation completed successfully!
-echo ================================================
-echo.
-echo Debug project location:   Build\VS2022\vs2022-debug-x64\
-echo Release project location: Build\VS2022\vs2022-release-x64\
-echo.
-echo Visual Studio Project Features:
-echo   ✓ External library include directories automatically configured
-echo   ✓ Linker dependencies automatically set for Debug/Release
-echo   ✓ DirectX, SDL3, ImGui, FreeType and other libraries linked
-echo   ✓ DLL files will be copied to output directory after build
-echo   ✓ Working directory set for debugging
-echo.
-echo To open the solution in Visual Studio:
-echo   - Debug:   Build\VS2022\vs2022-debug-x64\NomadEngine.sln
-echo   - Release: Build\VS2022\vs2022-release-x64\NomadEngine.sln
-echo.
-
-set /p choice="Open Debug solution in Visual Studio? (y/n): "
-if /i "%choice%"=="y" (
-    if exist "Build\VS2022\vs2022-debug-x64\NomadEngine.sln" (
-        echo Opening Visual Studio...
-        start "" "Build\VS2022\vs2022-debug-x64\NomadEngine.sln"
-    ) else (
-        echo Warning: Solution file not found
-    )
-)
-
-echo.
-echo Press any key to continue...
-pause >nul
-exit /b 0
-
-:error
-echo.
-echo ================================================
-echo Project generation failed!
-echo ================================================
-echo.
-echo Troubleshooting suggestions:
-echo   1. Ensure all external libraries are properly installed
-echo   2. Check CMakePresets.json for correct preset names
-echo   3. Verify Visual Studio 2022 is properly installed
-echo   4. Run this script as administrator if needed
 echo.
 pause
-exit /b 1
