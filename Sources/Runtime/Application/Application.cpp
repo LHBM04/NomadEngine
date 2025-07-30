@@ -2,12 +2,9 @@
 
 #include <iostream>
 
-#include "Platform/PlatformWindow_SDL.h"
-#include "Backends/RenderBackend_SDLRenderer.h"
-
 namespace NomadEngine::Runtime
 {
-     Application::Application()
+     /*Application::Application()
          : mPlatformWindow(nullptr)
          , mRenderBackend(nullptr)
      {
@@ -41,24 +38,22 @@ namespace NomadEngine::Runtime
      void Application::Run()
      {
          bool mIsRunning = true;
-         while (true)
+         while (mIsRunning)
          {
-             WindowEvent event = { };
-             if (mPlatformWindow->WaitEvent(&event))
+             PlatformWindowEvent event;
+             while (mPlatformWindow->WaitEvent(event))
              {
-                 mPlatformWindow->TranslateEvent(&event);
-                 mPlatformWindow->DispatchEvent(event);
-
+                 mPlatformWindow->TranslateEvent(event);
+                 HandlePlatformWindowEvent(event);
              }
-             else
-             {
-                 mRenderBackend->BeginFrame();
-                 // TODO: Update and render your game logic here.
-                 mRenderBackend->EndFrame();
 
-             }
+             mRenderBackend->BeginFrame();
+             // TODO: Update and render your game logic here.
+             mRenderBackend->EndFrame();
          }
 
-     }
+         mRenderBackend->Release();
+         mPlatformWindow->Release();
+     }*/
 
 }

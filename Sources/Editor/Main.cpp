@@ -31,24 +31,24 @@ static SDL_Renderer* gRendererContext;
 /**
  * @brief SDL3 윈도우 핸들러 초기화.
  */
-bool _stdcall InitializeWindow();
+bool InitializeWindow();
 
 /**
  * @brief SDL3 렌더러 핸들러 초기화.
  */
-bool _stdcall InitializeRenderer();
+bool InitializeRenderer();
 
 /**
  * @brief SDL3 및 OpenGL 렌더링 루프.
  */
-bool _stdcall Run();
+bool Run();
 
 /**
  * @brief SDL3 및 OpenGL 리소스 정리.
  */
-void _stdcall CleanUp();
+void CleanUp();
 
-int _stdcall main(int argc_, char** argv_)
+int main(int argc_, char** argv_)
 {
     UNREFERENCED_PARAMETER(argc_);
     UNREFERENCED_PARAMETER(argv_);
@@ -109,7 +109,7 @@ int _stdcall main(int argc_, char** argv_)
     return 0;
 }
 
-bool _stdcall InitializeWindow()
+bool InitializeWindow()
 {
     // SDL3 윈도우 핸들러 초기화
     gWindowContext = SDL_CreateWindow(
@@ -126,7 +126,7 @@ bool _stdcall InitializeWindow()
     return true;
 }
 
-bool _stdcall InitializeRenderer()
+bool InitializeRenderer()
 {
     // SDL3 렌더러 핸들러 초기화
     gRendererContext = SDL_CreateRenderer(
@@ -142,7 +142,7 @@ bool _stdcall InitializeRenderer()
     return true;
 }
 
-bool _stdcall Run()
+bool Run()
 {
     bool isRunning = true;
 
@@ -391,7 +391,6 @@ bool _stdcall Run()
 
         ImGui::End();
 
-        // 6. 성능 모니터 창
         ImGui::Begin("성능 모니터");
         ImGui::Text("애플리케이션 평균 %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
@@ -427,7 +426,7 @@ bool _stdcall Run()
     return true;
 }
 
-void _stdcall CleanUp()
+void CleanUp()
 {
     // ImGui 정리
     ImGui_ImplSDLRenderer3_Shutdown();

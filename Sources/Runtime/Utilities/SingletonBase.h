@@ -1,5 +1,5 @@
-#ifndef NOMAD_SINGLETONBASE_H
-#define NOMAD_SINGLETONBASE_H
+#ifndef GUARD_SINGLETONBASE_H
+#define GUARD_SINGLETONBASE_H
 
 namespace NomadEngine::Runtime
 {
@@ -37,6 +37,6 @@ namespace NomadEngine::Runtime
     };
 }
 
-#endif // !NOMAD_SINGLETONBASE_H
+#endif // !GUARD_SINGLETONBASE_H
 
 #include "../Runtime/Utilities/SingletonBase.inl"
