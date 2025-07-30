@@ -9,7 +9,7 @@ ColumnLimit: 120
 BreakBeforeBraces: Allman
 
 AllowShortIfStatementsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: All
+AllowShortFunctionsOnASingleLine: None # 한 줄 함수도 여러 줄로 강제
 AllowShortLoopsOnASingleLine: false
 
 DerivePointerAlignment: false
@@ -24,11 +24,18 @@ IncludeBlocks: Preserve
 
 SpaceBeforeParens: ControlStatements
 
-AlwaysBreakAfterReturnType: None
+AlwaysBreakAfterReturnType: All # 반환 타입 뒤 항상 줄바꿈
 BinPackParameters: false
 BinPackArguments: false
 
-ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: false # 항상 한 줄에 하나씩
 Cpp11BracedListStyle: true
 
 NamespaceIndentation: All
+
+# 추가: 자동완성/포맷 시 공백 및 배치 문제 방지용
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpacesInAngles: false
+SpaceInEmptyParentheses: false
+SpaceBeforeAssignmentOperators: true

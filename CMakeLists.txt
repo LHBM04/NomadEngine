@@ -144,30 +144,19 @@ file(GLOB_RECURSE SOURCES
 # ================================================
 # Executable Target
 # ================================================
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES}
+        Sources/Runtime/Application/Platform/PlatformWindowContext.h)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_STANDARD 20
     CXX_STANDARD_REQUIRED ON
-    CXX_EXTENSIONS OFF
-    WIN32_EXECUTABLE FALSE
-)
-
-target_compile_definitions(${PROJECT_NAME} PRIVATE
-    SDL_MAIN_HANDLED
-    WIN32_LEAN_AND_MEAN
-    NOMINMAX
-)
-
-target_include_directories(${PROJECT_NAME} PRIVATE
-    ${CMAKE_SOURCE_DIR}/Sources/Runtime
-    ${CMAKE_SOURCE_DIR}/Sources/Editor
-    ${CMAKE_SOURCE_DIR}/Sources/Resources
-    ${EXTERNAL_INCLUDES}
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
 )
 
 # ================================================
-# Link Libraries
+# Link External Libraries to Main Target
 # ================================================
 target_link_libraries(${PROJECT_NAME} PRIVATE
     DirectX
@@ -181,11 +170,78 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     Brotli
     bzip2
     GameInput
-
-    # Windows system libraries
-    user32 gdi32 winmm imm32 ole32 oleaut32
-    version setupapi advapi32 shell32 kernel32
 )
+
+# ================================================
+# Include Directories
+# ================================================
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_SOURCE_DIR}/Sources/Editor
+    ${CMAKE_SOURCE_DIR}/Sources/Runtime
+    ${EXTERNAL_INCLUDES}
+)
+
+# ================================================
+# Additional Compiler Definitions
+# ================================================
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+    WIN32_LEAN_AND_MEAN
+    NOMINMAX
+    $<$<CONFIG:Debug>:_DEBUG>
+    $<$<CONFIG:Release>:NDEBUG>
+)
+
+# ================================================
+# Copy External Binaries to Output Directory
+# ================================================
+if(WIN32)
+    # Copy debug binaries for debug configuration
+    if(EXISTS ${EXTERNAL_BINARIES_DEBUG})
+        file(GLOB DEBUG_DLLS "${EXTERNAL_BINARIES_DEBUG}/*.dll")
+        foreach(dll ${DEBUG_DLLS})
+            add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                "${dll}"
+                "$<$<CONFIG:Debug>:${CMAKE_BINARY_DIR}/bin/Debug/>"
+                COMMENT "Copying debug DLL: ${dll}"
+            )
+        endforeach()
+    endif()
+
+    # Copy release binaries for release configuration
+    if(EXISTS ${EXTERNAL_BINARIES_RELEASE})
+        file(GLOB RELEASE_DLLS "${EXTERNAL_BINARIES_RELEASE}/*.dll")
+        foreach(dll ${RELEASE_DLLS})
+            add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                "${dll}"
+                "$<$<CONFIG:Release>:${CMAKE_BINARY_DIR}/bin/Release/>"
+                COMMENT "Copying release DLL: ${dll}"
+            )
+        endforeach()
+    endif()
+endif()
+
+# ================================================
+# Visual Studio specific settings
+# ================================================
+if(MSVC)
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        /W4                     # Warning level 4
+        /permissive-           # Disable non-conforming code
+        /Zc:__cplusplus        # Enable correct __cplusplus macro
+        $<$<CONFIG:Debug>:/MDd>
+        $<$<CONFIG:Release>:/MD>
+    )
+
+    # Set startup project in Visual Studio
+    set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
+
+    # Set working directory for debugging
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+    )
+endif()
 
 # ================================================
 # Post-build Actions

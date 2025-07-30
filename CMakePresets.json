@@ -2,7 +2,7 @@
   "version": 3,
   "configurePresets": [
     {
-      "name": "windows-msvc-debug-x64",
+      "name": "Debug/x64",
       "displayName": "Windows MSVC Debug x64 (Clang-cl + Ninja)",
       "description": "CMake Preset for building on Windows in Debug mode with Clang-cl toolchain using Ninja",
       "generator": "Ninja",
@@ -30,7 +30,7 @@
       }
     },
     {
-      "name": "windows-msvc-release-x64",
+      "name": "Release/x64",
       "displayName": "Windows MSVC Release x64 (Clang-cl + Ninja)",
       "description": "CMake Preset for building on Windows in Release mode with Clang-cl toolchain using Ninja",
       "generator": "Ninja",

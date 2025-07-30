@@ -2,7 +2,9 @@
 param(
     [switch]$OpenSolution = $false,
     [ValidateSet("Debug", "Release", "Both")]
-    [string]$Configuration = "Both"
+    [string]$Configuration = "Both",
+    [switch]$CleanCache = $false,
+    [switch]$VerifyLibraries = $true
 )
 
 Write-Host "================================================" -ForegroundColor Cyan
@@ -27,6 +29,77 @@ if (-not $vsInstallations) {
     Write-Host "Make sure Visual Studio 2022 is installed" -ForegroundColor Red
 }
 
+# Function to verify external libraries exist
+function Verify-ExternalLibraries {
+    Write-Host ""
+    Write-Host "Verifying External Libraries..." -ForegroundColor Yellow
+
+    $externalDir = "Sources\External"
+    $includesDir = "$externalDir\Includes"
+    $libsDebugDir = "$externalDir\Libraries\Debug"
+    $libsReleaseDir = "$externalDir\Libraries\Release"
+    $binariesDebugDir = "$externalDir\Binaries\Debug"
+    $binariesReleaseDir = "$externalDir\Binaries\Release"
+
+    $missingDirs = @()
+
+    if (-not (Test-Path $includesDir)) { $missingDirs += $includesDir }
+    if (-not (Test-Path $libsDebugDir)) { $missingDirs += $libsDebugDir }
+    if (-not (Test-Path $libsReleaseDir)) { $missingDirs += $libsReleaseDir }
+
+    if ($missingDirs.Count -gt 0) {
+        Write-Warning "Missing External Library directories:"
+        foreach ($dir in $missingDirs) {
+            Write-Host "  - $dir" -ForegroundColor Red
+        }
+        Write-Host ""
+        Write-Host "Please ensure all external libraries are properly installed." -ForegroundColor Yellow
+        return $false
+    }
+
+    # Check for specific library files
+    $requiredLibs = @(
+        @{ Debug = "$libsDebugDir\SDL3-static.lib"; Release = "$libsReleaseDir\SDL3-static.lib"; Name = "SDL3" },
+        @{ Debug = "$libsDebugDir\imguid.lib"; Release = "$libsReleaseDir\imgui.lib"; Name = "ImGui" },
+        @{ Debug = "$libsDebugDir\freetyped.lib"; Release = "$libsReleaseDir\freetype.lib"; Name = "FreeType" }
+    )
+
+    $missingLibs = @()
+    foreach ($lib in $requiredLibs) {
+        if (-not (Test-Path $lib.Debug)) { $missingLibs += "$($lib.Name) Debug: $($lib.Debug)" }
+        if (-not (Test-Path $lib.Release)) { $missingLibs += "$($lib.Name) Release: $($lib.Release)" }
+    }
+
+    if ($missingLibs.Count -gt 0) {
+        Write-Warning "Missing library files:"
+        foreach ($lib in $missingLibs) {
+            Write-Host "  - $lib" -ForegroundColor Red
+        }
+        Write-Host ""
+    } else {
+        Write-Host "✓ External libraries verified successfully" -ForegroundColor Green
+    }
+
+    return $missingLibs.Count -eq 0
+}
+
+# Function to clean CMake cache
+function Clean-CMakeCache {
+    param($BuildDir)
+
+    if (Test-Path $BuildDir) {
+        Write-Host "Cleaning CMake cache in $BuildDir..." -ForegroundColor Yellow
+        try {
+            Remove-Item "$BuildDir\CMakeCache.txt" -Force -ErrorAction SilentlyContinue
+            Remove-Item "$BuildDir\CMakeFiles" -Recurse -Force -ErrorAction SilentlyContinue
+            Write-Host "✓ Cache cleaned successfully" -ForegroundColor Green
+        }
+        catch {
+            Write-Warning "Failed to clean cache: $_"
+        }
+    }
+}
+
 # Function to generate project
 function Generate-Project {
     param($PresetName, $ConfigName)
@@ -34,17 +107,53 @@ function Generate-Project {
     Write-Host ""
     Write-Host "Generating Visual Studio 2022 $ConfigName project..." -ForegroundColor Green
 
+    $buildDir = "Build\VS2022\$PresetName"
+
+    # Clean cache if requested
+    if ($CleanCache) {
+        Clean-CMakeCache $buildDir
+    }
+
     try {
         & cmake --preset $PresetName
         if ($LASTEXITCODE -ne 0) {
             throw "CMake configuration failed with exit code $LASTEXITCODE"
         }
+
+        # Verify the solution file was created
+        $solutionPath = "$buildDir\NomadEngine.sln"
+        if (-not (Test-Path $solutionPath)) {
+            throw "Solution file not generated: $solutionPath"
+        }
+
+        # Verify project includes external libraries
+        $projectPath = "$buildDir\NomadEngine.vcxproj"
+        if (Test-Path $projectPath) {
+            $projectContent = Get-Content $projectPath -Raw
+            $hasIncludes = $projectContent -match "Sources\\External\\Includes"
+            $hasLibraries = $projectContent -match "Sources\\External\\Libraries"
+
+            if ($hasIncludes -and $hasLibraries) {
+                Write-Host "✓ External libraries properly integrated in Visual Studio project" -ForegroundColor Green
+            } else {
+                Write-Warning "External libraries may not be properly integrated. Check project settings."
+            }
+        }
+
         Write-Host "✓ $ConfigName project generated successfully" -ForegroundColor Green
         return $true
     }
     catch {
         Write-Error "Failed to generate $ConfigName project: $_"
         return $false
+    }
+}
+
+# Verify external libraries if requested
+if ($VerifyLibraries) {
+    $librariesOk = Verify-ExternalLibraries
+    if (-not $librariesOk) {
+        Write-Host "Consider installing missing libraries or use -VerifyLibraries:$false to skip verification" -ForegroundColor Yellow
     }
 }
 
@@ -72,6 +181,14 @@ if ($success) {
     if ($Configuration -eq "Release" -or $Configuration -eq "Both") {
         Write-Host "Release project location: Build\VS2022\vs2022-release-x64\" -ForegroundColor Cyan
     }
+
+    Write-Host ""
+    Write-Host "Visual Studio Project Features:" -ForegroundColor Yellow
+    Write-Host "  ✓ External library include directories automatically configured" -ForegroundColor Green
+    Write-Host "  ✓ Linker dependencies automatically set for Debug/Release" -ForegroundColor Green
+    Write-Host "  ✓ DirectX, SDL3, ImGui, FreeType and other libraries linked" -ForegroundColor Green
+    Write-Host "  ✓ DLL files will be copied to output directory after build" -ForegroundColor Green
+    Write-Host "  ✓ Working directory set for debugging" -ForegroundColor Green
 
     Write-Host ""
     Write-Host "To open the solution in Visual Studio:" -ForegroundColor Yellow
@@ -105,6 +222,12 @@ else {
     Write-Host "================================================" -ForegroundColor Red
     Write-Host "Project generation failed!" -ForegroundColor Red
     Write-Host "================================================" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Troubleshooting suggestions:" -ForegroundColor Yellow
+    Write-Host "  1. Try running with -CleanCache to clear old CMake cache" -ForegroundColor White
+    Write-Host "  2. Ensure all external libraries are properly installed" -ForegroundColor White
+    Write-Host "  3. Check CMakePresets.json for correct preset names" -ForegroundColor White
+    Write-Host "  4. Verify Visual Studio 2022 is properly installed" -ForegroundColor White
     exit 1
 }
 
