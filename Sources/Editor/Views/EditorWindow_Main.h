@@ -1,0 +1,1 @@
+﻿#ifndef GUARD_EDTTORWINDOW_MAIN_H

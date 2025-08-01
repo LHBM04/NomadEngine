@@ -303,7 +303,17 @@ file(GLOB_RECURSE SOURCES
 # Executable Target
 # ================================================
 add_executable(${PROJECT_NAME} ${SOURCES}
-        Sources/Runtime/Application/Platform/PlatformWindowContext.h)
+        Sources/Runtime/Application/Platform/PlatformWindowContext.h
+        Sources/Editor/Views/IEditorWindow.h
+        Sources/Editor/Views/EditorWindow_Main.cpp
+        Sources/Editor/Views/EditorWindow_Main.h
+        Sources/Editor/Platform/IPlatform.h
+        Sources/Editor/Platform/Platform_Windows.cpp
+        Sources/Editor/Platform/Platform_Windows.h
+        Sources/Runtime/Application/Backends/RenderingServer_SDLRenderer.h
+        Sources/Runtime/Application/Backends/RenderingServer_SDLRenderer.cpp
+        Sources/Runtime/Application/Backends/RenderingServer_GDI.cpp
+        Sources/Runtime/Application/Backends/RenderingServer_GDI.h)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_STANDARD 20

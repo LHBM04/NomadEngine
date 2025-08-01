@@ -4,17 +4,17 @@
 namespace NomadEngine::Runtime
 {
     /**
-     * @class IRenderBackend
+     * @class IRenderingServer
      *
-     * @brief 렌더링 백엔드의 인터페이스를 정의합니다.
+     * @brief 렌더링 서버를 정의합니다.
      */
-    class IRenderBackend
+    class IRenderingServer
     {
     public:
         /**
-         * @brief 생성자.
+         * @brief 소멸자.
          */
-        virtual ~IRenderBackend() = default;
+        virtual ~IRenderingServer() = default;
 
         /**
          * @brief 렌더링 백엔드를 초기화합니다.
@@ -23,8 +23,19 @@ namespace NomadEngine::Runtime
          */
         virtual bool Initialize() = 0;
 
+        /**
+         * @brief 프레임 시작.
+         */
         virtual void BeginFrame() = 0;
 
+        /**
+         * @brief 프레임 렌더.
+         */
+        virtual void Present() = 0;
+
+        /**
+         * @brief 프레임 종료.
+         */
         virtual void EndFrame() = 0;
 
         /**

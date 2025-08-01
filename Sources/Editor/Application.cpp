@@ -19,23 +19,9 @@ namespace NomadEngine::Editor
 
     bool Application::Initialize()
     {
-        IMGUI_CHECKVERSION();
-
-        ImGui::CreateContext();
-        ImGuiIO& io = ImGui::GetIO();
-
-        io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-        io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
-        io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-        io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
-
-        ImGui::StyleColorsClassic();
-
-        ImGuiStyle& style = ImGui::GetStyle();
-        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+        if (!mInitializeGUI())
         {
-            style.WindowRounding = 0.0f;
-            style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+            return false;
         }
 
         return true;
@@ -100,4 +86,27 @@ namespace NomadEngine::Editor
         // 여기에 리소스 해제 로직을 추가합니다.
     }
 
-}
+    bool Application::mInitializeGUI()
+    {
+        IMGUI_CHECKVERSION();
+
+        ImGui::CreateContext();
+
+        ImGuiIO& io = ImGui::GetIO();
+        io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+        io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+        io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+        io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+
+        ImGui::StyleColorsClassic();
+        ImGuiStyle& style = ImGui::GetStyle();
+        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+        {
+            style.WindowRounding = 0.0f;
+            style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+        }
+
+        return true;
+    }
+
+}  // namespace NomadEngine::Editor

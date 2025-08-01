@@ -19,6 +19,7 @@ namespace NomadEngine::Editor
          * @brief 생성자.
          */
         Application();
+
         /**
          * @brief 소멸자.
          */
@@ -52,6 +53,13 @@ namespace NomadEngine::Editor
         void Release();
 
     private:
+        /**
+         * @brief GUI 라이브러리를 초기화합니다.
+         *
+         * @return bool 성공하면 true, 실패하면 false를 반환합니다.
+         */
+        bool mInitializeGUI();
+
         EditorWindow mWindow;
 
     };
