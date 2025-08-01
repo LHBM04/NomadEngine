@@ -7,12 +7,16 @@ project(NomadEngine)
 # ================================================
 # Basic Configuration
 # ================================================
+set(CMAKE_C_STANDARD 14)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Set source file encoding to UTF-8 with BOM for Visual Studio
 if(MSVC)
     add_compile_options("/utf-8")
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
     set(CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD 1)
 endif()
 

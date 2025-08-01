@@ -2,12 +2,10 @@
     "version": 3,
     "configurePresets": [
         {
-            "name": "vs2022-debug-x64",
-            "displayName": "Visual Studio 2022 Debug x64",
-            "description": "Visual Studio 2022 Debug configuration for x64 platform",
+            "name": "x64-base",
+            "hidden": true,
             "generator": "Visual Studio 17 2022",
             "architecture": "x64",
-            "binaryDir": "${sourceDir}/Build/VS2022/vs2022-debug-x64",
             "cacheVariables": {
                 "CMAKE_CONFIGURATION_TYPES": "Debug;Release;MinSizeRel;RelWithDebInfo",
                 "CMAKE_CXX_STANDARD": "20",
@@ -19,36 +17,42 @@
             }
         },
         {
-            "name": "vs2022-release-x64",
-            "displayName": "Visual Studio 2022 Release x64",
-            "description": "Visual Studio 2022 Release configuration for x64 platform",
-            "generator": "Visual Studio 17 2022",
-            "architecture": "x64",
-            "binaryDir": "${sourceDir}/Build/VS2022/vs2022-release-x64",
-            "cacheVariables": {
-                "CMAKE_CONFIGURATION_TYPES": "Debug;Release;MinSizeRel;RelWithDebInfo",
-                "CMAKE_CXX_STANDARD": "20",
-                "CMAKE_CXX_STANDARD_REQUIRED": "ON",
-                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
-            },
-            "environment": {
-                "VCPKG_TARGET_ARCHITECTURE": "x64"
-            }
+            "name": "Debug-x64",
+            "inherits": "x64-base",
+            "displayName": "Debug/x64",
+            "description": "Debug configuration for x64 platform",
+            "binaryDir": "${sourceDir}/Binaries/Debug"
+        },
+        {
+            "name": "Release-x64",
+            "inherits": "x64-base",
+            "displayName": "Release/x64",
+            "description": "Release configuration for x64 platform",
+            "binaryDir": "${sourceDir}/Binaries/Release"
         }
     ],
     "buildPresets": [
         {
-            "name": "vs2022-debug-x64-build",
-            "displayName": "Build Debug x64",
-            "configurePreset": "vs2022-debug-x64",
+            "name": "Debug",
+            "configurePreset": "Debug-x64",
             "configuration": "Debug"
         },
         {
-            "name": "vs2022-release-x64-build",
-            "displayName": "Build Release x64",
-            "configurePreset": "vs2022-release-x64",
+            "name": "Release",
+            "configurePreset": "Release-x64",
+            "configuration": "Release"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "Debug",
+            "configurePreset": "Debug-x64",
+            "configuration": "Debug"
+        },
+        {
+            "name": "Release",
+            "configurePreset": "Release-x64",
             "configuration": "Release"
         }
     ]
 }
-
