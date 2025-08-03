@@ -4,8 +4,6 @@
 #include "../Display/IDisplayServer.h"
 #include "../Display/DisplayServerDescriptor.h"
 
-#include <string>
-
 struct HWND__;
 struct HINSTANCE__;
 

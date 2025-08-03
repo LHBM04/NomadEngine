@@ -1,5 +1,5 @@
-#ifndef GUARD_DEFINES_H
-#define GUARD_DEFINES_H
+#ifndef EDTIOR_DEFINES_H
+#define EDTIOR_DEFINES_H
 
 // 플랫폼 감지
 #if defined(_WIN32) || defined(_WIN64)

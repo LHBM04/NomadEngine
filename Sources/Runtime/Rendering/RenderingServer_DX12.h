@@ -1,25 +1,15 @@
 #ifndef GUARD_RENDERSYSTEM_WINDOWS_H
 #define GUARD_RENDERSYSTEM_WINDOWS_H
 
+#include <d3d12.h>
+#include <d3dx12.h>
 #include <wrl.h>
+#include <windows.h>
 
+#include "../Common/Defines.h"
+#include "../Common/Types.h"
 #include "../Rendering/IRenderingServer.h"
 #include "../Rendering/RenderingServerDescriptor.h"
-
-// Forward declarations
-struct IDXGIFactory7;
-struct IDXGIAdapter4;
-struct ID3D12Device;
-struct ID3D12CommandQueue;
-struct IDXGISwapChain4;
-struct ID3D12DescriptorHeap;
-struct ID3D12Resource;
-struct ID3D12CommandAllocator;
-struct ID3D12GraphicsCommandList;
-struct ID3D12Fence1;
-struct D3D12_VIEWPORT;
-struct D3D12_RECT;
-typedef void* HANDLE;
 
 namespace NomadEngine::Runtime
 {
@@ -80,9 +70,8 @@ namespace NomadEngine::Runtime
         bool mCreateCommandList();
         bool mCreateSyncObjects();
 
-        static constexpr UINT FrameCount = 2;
+        static constexpr UInt32 FrameCount = 2;
 
-        // Pipeline objects.
         Microsoft::WRL::ComPtr<ID3D12Device> mDevice;
         Microsoft::WRL::ComPtr<ID3D12CommandQueue> mCommandQueue;
         Microsoft::WRL::ComPtr<IDXGISwapChain4> mSwapChain;
@@ -90,12 +79,12 @@ namespace NomadEngine::Runtime
         Microsoft::WRL::ComPtr<ID3D12Resource> mRenderTargets[FrameCount];
         Microsoft::WRL::ComPtr<ID3D12CommandAllocator> mCommandAllocator;
         Microsoft::WRL::ComPtr<ID3D12GraphicsCommandList> mCommandList;
-        UINT mRTVDescriptorSize;
+        UInt32 mRTVDescriptorSize;
 
-        UINT mFrameIndex;
+        UInt32 mFrameIndex;
         HANDLE mFenceEvent;
         Microsoft::WRL::ComPtr<ID3D12Fence1> mFence;
-        UINT64 mFenceValue;
+        UInt64 mFenceValue;
 
         D3D12_VIEWPORT mViewport;
         D3D12_RECT mScissorRect;

@@ -141,19 +141,21 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 )
 
 # ================================================
-# Precompiled Headers Configuration
+# Precompiled Headers Configuration (비활성화)
 # ================================================
-if(CMAKE_VERSION VERSION_GREATER_EQUAL "3.16")
-    # Runtime PCH (임시 비활성화)
-    # target_precompile_headers(NomadEngine_Runtime PRIVATE Sources/Runtime/RuntimePCH.h)
+# if(CMAKE_VERSION VERSION_GREATER_EQUAL "3.16")
+#     # Runtime PCH (임시 비활성화)
+#     # target_precompile_headers(NomadEngine_Runtime PRIVATE Sources/Runtime/RuntimePCH.h)
 
-    # Editor PCH
-    target_precompile_headers(${PROJECT_NAME} PRIVATE Sources/Editor/EditorPCH.h)
+#     # Editor PCH
+#     target_precompile_headers(${PROJECT_NAME} PRIVATE Sources/Editor/EditorPCH.h)
 
-    message(STATUS "Precompiled headers enabled")
-else()
-    message(WARNING "CMake version ${CMAKE_VERSION} does not support PCH")
-endif()
+#     message(STATUS "Precompiled headers enabled")
+# else()
+#     message(WARNING "CMake version ${CMAKE_VERSION} does not support PCH")
+# endif()
+
+message(STATUS "Precompiled headers disabled")
 
 # ================================================
 # Compiler Optimizations

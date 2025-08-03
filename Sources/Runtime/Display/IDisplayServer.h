@@ -1,6 +1,8 @@
 #ifndef GUARD_IDISPLAYSERVER_H
 #define GUARD_IDISPLAYSERVER_H
 
+#include "../Runtime/Display/DisplayServerDescriptor.h"
+
 namespace NomadEngine::Runtime
 {
     class IDisplayServer
