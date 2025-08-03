@@ -1,6 +1,9 @@
 #ifndef GUARD_DISPLAYSERVERDESCRIPTOR_H
 #define GUARD_DISPLAYSERVERDESCRIPTOR_H
 
+#include "../Runtime/Common/Defines.h"
+#include "../Runtime/Common/Types.h"
+
 namespace NomadEngine::Runtime
 {
     /**
@@ -10,15 +13,50 @@ namespace NomadEngine::Runtime
      */
     struct DisplayServerDescriptor
     {
-        const char* title;  // 이름.
-        int x;              // X 좌표.
-        int y;              // Y 좌표.
-        int width;          // 너비.
-        int height;         // 높이.
-        bool fullscreen;    // 전체 화면 모드 여부.
-        bool vsync;         // VSync 활성화 여부.
-        bool resizable;     // 창 크기 조절 가능 여부.
-        bool borderless;    // 테두리 없는 창 여부.
+        /**
+         * @brief 생성될 디스플레이의 제목.
+         */
+        std::string_view title;
+
+        /**
+         * @brief 생성될 디스플레이의 X 좌표.
+         */
+        UInt32 x;
+
+        /**
+         * @brief 생성될 디스플레이의 Y 좌표.
+         */
+        UInt32 y;
+
+        /**
+         * @brief 생성될 디스플레이의 너비.
+         */
+        UInt32 width;
+
+        /**
+         * @brief 생성될 디스플레이의 높이.
+         */
+        UInt32 height;
+
+        /**
+         * @brief 생성될 디스플레이의 전체 화면 여부.
+         */
+        Bool isFullscreen;
+
+        /**
+         * @brief 생성될 디스플레이의 VSync 활성화 여부.
+         */
+        Bool isVsync;
+
+        /**
+         * @brief 생성될 디스플레이의 크기 조절 가능 여부.
+         */
+        Bool isResizable;
+
+        /**
+         * @brief 생설될 디스플레이의 테두리 여부.
+         */
+        Bool isBorderless;
     };
 }
 

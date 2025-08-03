@@ -1,7 +1,7 @@
-#ifndef EDITOR_SINGLETONBASE_H
-#define EDITOR_SINGLETONBASE_H
+#ifndef GUARD_SINGLETONBASE_H
+#define GUARD_SINGLETONBASE_H
 
-namespace NomadEngine::Editor
+namespace NomadEngine::Runtime
 {
     template <typename T>
     class SingletonBase
@@ -34,11 +34,11 @@ namespace NomadEngine::Editor
          */
         static T& GetInstance()
         {
-            static T instance;
-            return instance;  
+            static T instance; // 정적 인스턴스 생성
+            return instance;   // 인스턴스 반환
         }
 
     };
 }
 
-#endif //SINGLETONBASE_H
+#endif

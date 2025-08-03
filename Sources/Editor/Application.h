@@ -1,25 +1,18 @@
-#ifndef GUARD_APPLICATION_H
-#define GUARD_APPLICATION_H
+#pragma once
 
 #include <memory>
-
-#include "../Editor/SingletonBase.h"
-
-namespace NomadEngine::Runtime
-{
-    class IDisplayServer;
-    class IRenderingServer;
-}
+#include "SingletonBase.h"
 
 namespace NomadEngine::Editor
 {
+    class EditorWindow_Main;
+
     /**
      * @class Application
      *
      * @brief 에디터 어플리케이션의 동작을 정의합니다.
      */
-    class Application
-        : public SingletonBase<Application>
+    class Application : public SingletonBase<Application>
     {
     public:
         /**
@@ -45,32 +38,27 @@ namespace NomadEngine::Editor
         void Run();
 
         /**
-         * @brief 에디터 어플리케이션을 업데이트합니다.
+         * @brief 에디터 어플리케이션을 업데이트합니다. (Legacy)
          */
         void Update();
 
         /**
-         * @brief 에디터 어플리케이션을 렌더합니다.
+         * @brief 에디터 어플리케이션을 렌더합니다. (Legacy)
          */
         void Render();
 
         /**
          * @brief 에디터 어플리케이션을 종료합니다.
          */
+        void Shutdown();
+
+        /**
+         * @brief 에디터 어플리케이션을 종료합니다. (Legacy)
+         */
         void Finalize();
 
     private:
-        /**
-         * @brief GUI 라이브러리를 초기화합니다.
-         *
-         * @return bool 성공하면 true, 실패하면 false를 반환합니다.
-         */
-        bool mInitializeGUI();
-
-        std::unique_ptr<Runtime::IDisplayServer> mDisplayServer;
-        std::unique_ptr<Runtime::IRenderingServer> mRenderingServer;
+        std::unique_ptr<EditorWindow_Main> mMainWindow;
+        bool mIsRunning = true;
     };
-
 }
-
-#endif // !GUARD_APPLICATION_H
