@@ -38,6 +38,3 @@ int main(int argc, char** argv)
     std::cout << "Editor shutdown complete" << std::endl;
     return 0;
 }
-
-// test git
-
