@@ -1,8 +1,15 @@
 #ifndef GUARD_APPLICATION_H
 #define GUARD_APPLICATION_H
 
+#include <memory>
+
 #include "../Editor/SingletonBase.h"
-#include "../Editor/EditorWindow.h"
+
+namespace NomadEngine::Runtime
+{
+    class IDisplayServer;
+    class IRenderingServer;
+}
 
 namespace NomadEngine::Editor
 {
@@ -19,6 +26,7 @@ namespace NomadEngine::Editor
          * @brief 생성자.
          */
         Application();
+
         /**
          * @brief 소멸자.
          */
@@ -49,11 +57,18 @@ namespace NomadEngine::Editor
         /**
          * @brief 에디터 어플리케이션을 종료합니다.
          */
-        void Release();
+        void Finalize();
 
     private:
-        EditorWindow mWindow;
+        /**
+         * @brief GUI 라이브러리를 초기화합니다.
+         *
+         * @return bool 성공하면 true, 실패하면 false를 반환합니다.
+         */
+        bool mInitializeGUI();
 
+        std::unique_ptr<Runtime::IDisplayServer> mDisplayServer;
+        std::unique_ptr<Runtime::IRenderingServer> mRenderingServer;
     };
 
 }

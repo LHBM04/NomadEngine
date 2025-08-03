@@ -7,7 +7,7 @@ project(NomadEngine)
 # ================================================
 # Basic Configuration
 # ================================================
-set(CMAKE_C_STANDARD 14)
+set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -303,7 +303,17 @@ file(GLOB_RECURSE SOURCES
 # Executable Target
 # ================================================
 add_executable(${PROJECT_NAME} ${SOURCES}
-        Sources/Runtime/Application/Platform/PlatformWindowContext.h)
+        Sources/Runtime/Display/PlatformWindowContext.h
+        Sources/Editor/Views/IEditorWindow.h
+        Sources/Editor/Views/EditorWindow_Main.cpp
+        Sources/Editor/Views/EditorWindow_Main.h
+        Sources/Editor/Platform/IPlatform.h
+        Sources/Editor/Platform/Platform_Windows.cpp
+        Sources/Editor/Platform/Platform_Windows.h
+        Sources/Runtime/Rendering/RenderingServer_SDLRenderer.h
+        Sources/Runtime/Rendering/RenderingServer_SDLRenderer.cpp
+        Sources/Runtime/Rendering/RenderingServer_GDI.cpp
+        Sources/Runtime/Rendering/RenderingServer_GDI.h)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_STANDARD 20
@@ -398,6 +408,10 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
     NOMINMAX
     $<$<CONFIG:Debug>:_DEBUG>
     $<$<CONFIG:Release>:NDEBUG>
+    # Platform definitions
+    $<$<PLATFORM_ID:Windows>:NOMAD_PLATFORM_WINDOWS=1>
+    $<$<PLATFORM_ID:Linux>:NOMAD_PLATFORM_LINUX=1>
+    $<$<PLATFORM_ID:Darwin>:NOMAD_PLATFORM_MACOS=1>
 )
 
 # ================================================
@@ -472,3 +486,31 @@ if(WIN32)
     copy_dll_safely("assimp-vc143-mtd.dll")
     copy_dll_safely("assimp-vc143-mt.dll")
 endif()
+
+# ================================================
+# Testing (Google Test)
+# ================================================
+enable_testing()
+
+add_library(GTest INTERFACE)
+target_include_directories(GTest SYSTEM INTERFACE
+    ${EXTERNAL_INCLUDES}/gtest
+    ${EXTERNAL_INCLUDES}/gmock
+)
+target_link_libraries(GTest INTERFACE
+    $<$<CONFIG:Debug>:gtestd>
+    $<$<CONFIG:Debug>:gmockd>
+    $<$<CONFIG:Release>:gtest>
+    $<$<CONFIG:Release>:gmock>
+)
+
+add_executable(NomadEngine_Tests
+    Tests/DisplayServer/DisplayServerTests.cpp
+)
+
+target_link_libraries(NomadEngine_Tests PRIVATE ${PROJECT_NAME} GTest)
+
+include(GoogleTest)
+gtest_discover_tests(NomadEngine_Tests)
+
+
