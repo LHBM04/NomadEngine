@@ -1,40 +1,69 @@
 Checks: >
+  -*,
   clang-analyzer-*,
+  bugprone-*,
   cppcoreguidelines-*,
-  modernize-*,
   performance-*,
   readability-*,
-  bugprone-*,
-  misc-unused-parameters,
-  -fuchsia-*,
-  -hicpp-*,
-  -llvm-*,
-  -google-*,
-  -cert-*,
-  -android-*,
-  -altera-*,
-  -zircon-*
+  modernize-*,
+  misc-*,
+  portability-*,
+  google-*,
+  -google-readability-function-size,
+  -modernize-use-trailing-return-type,
+  -readability-identifier-naming,
+  -cppcoreguidelines-avoid-magic-numbers
 
-WarningsAsErrors: ''
+WarningsAsErrors: '*'
+
 HeaderFilterRegex: '.*'
-AnalyzeTemporaryDtors: false
-FormatStyle: file
+
 CheckOptions:
-  - key:             modernize-use-nullptr.NullMacros
-    value:           'NULL'
-  - key:             modernize-use-override.IgnoreDestructors
-    value:           '1'
-  - key:             cppcoreguidelines-pro-type-member-init.HabilitateBitFields
-    value:           '1'
-  - key:             readability-identifier-naming.VariableCase
+  - key:             readability-identifier-naming.ClassCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.StructCase
     value:           CamelCase
   - key:             readability-identifier-naming.FunctionCase
     value:           CamelCase
-  - key:             readability-identifier-naming.ClassCase
+  - key:             readability-identifier-naming.FunctionIgnoredRegexp
+    value:           '^(Get|Set)[A-Z]'
+  - key:             readability-identifier-naming.MemberPrefix
+    value:           m
+  - key:             readability-identifier-naming.MemberCase
+    value:           camelBack
+  - key:             readability-identifier-naming.ParameterCase
+    value:           camelBack
+  - key:             readability-identifier-naming.ParameterSuffix
+    value:           _
+  - key:             readability-identifier-naming.GlobalConstantPrefix
+    value:           m
+  - key:             readability-identifier-naming.GlobalConstantCase
     value:           CamelCase
+  - key:             readability-identifier-naming.VariableCase
+    value:           camelBack
   - key:             readability-identifier-naming.PrivateMemberPrefix
     value:           m
   - key:             readability-identifier-naming.ProtectedMemberPrefix
     value:           p
-  - key:             readability-identifier-naming.GlobalVariablePrefix
-    value:           g
+
+  - key:             cppcoreguidelines-explicit-virtual-functions.CheckExplicitVirtualDestructor
+    value:           1
+  - key:             readability-const-return-type.IgnoreMacros
+    value:           0
+  - key:             readability-const-return-type.WarnOnConstReturn
+    value:           1
+
+  - key:             cppcoreguidelines-avoid-magic-numbers.IgnoreEnums
+    value:           true
+  - key:             cppcoreguidelines-avoid-magic-numbers.IgnoreMacros
+    value:           true
+  - key:             cppcoreguidelines-avoid-magic-numbers.IgnoredValues
+    value:           '-1,0,1,2'
+
+  - key:             misc-definitions-in-headers.IgnoreHeaderFiles
+    value:           0
+
+  - key:             modernize-use-auto.MinTypeNameLength
+    value:           99 
+
+FormatStyle: file
