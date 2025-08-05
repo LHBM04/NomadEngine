@@ -2,57 +2,56 @@
     "version": 3,
     "configurePresets": [
         {
-            "name": "x64-base",
+            "name": "base-x64",
             "hidden": true,
-            "generator": "Visual Studio 17 2022",
-            "architecture": "x64",
+            "generator": "Ninja",
             "cacheVariables": {
-                "CMAKE_CONFIGURATION_TYPES": "Debug;Release;MinSizeRel;RelWithDebInfo",
-                "CMAKE_CXX_STANDARD": "20",
+                "CMAKE_C_COMPILER": "clang-cl",
+                "CMAKE_C_STANDARD": "17",
+                "CMAKE_C_STANDARD_REQUIRED": "ON",
+                
+                "CMAKE_CXX_COMPILER": "clang-cl",
+                "CMAKE_CXX_STANDARD": "23",
                 "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+                
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
             },
             "environment": {
-                "VCPKG_TARGET_ARCHITECTURE": "x64"
+                "CC": "clang-cl",
+                "CXX": "clang-cl"
             }
         },
         {
-            "name": "Debug-x64",
-            "inherits": "x64-base",
+            "name": "debug-x64",
+            "inherits": "base-x64",
             "displayName": "Debug/x64",
-            "description": "Debug configuration for x64 platform",
-            "binaryDir": "${sourceDir}/Binaries/Debug"
+            "description": "Debug configuration of Nomad Engine",
+            "binaryDir": "${sourceDir}/Binaries/Debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
         },
         {
-            "name": "Release-x64",
-            "inherits": "x64-base",
+            "name": "release-x64",
+            "inherits": "base-x64",
             "displayName": "Release/x64",
-            "description": "Release configuration for x64 platform",
-            "binaryDir": "${sourceDir}/Binaries/Release"
+            "description": "Release configuration of Nomad Engine",
+            "binaryDir": "${sourceDir}/Binaries/Release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
         }
     ],
     "buildPresets": [
         {
-            "name": "Debug",
-            "configurePreset": "Debug-x64",
-            "configuration": "Debug"
+            "name": "debug-x64",
+            "configurePreset": "debug-x64",
+            "displayName": "Debug/x64"
         },
         {
-            "name": "Release",
-            "configurePreset": "Release-x64",
-            "configuration": "Release"
-        }
-    ],
-    "testPresets": [
-        {
-            "name": "Debug",
-            "configurePreset": "Debug-x64",
-            "configuration": "Debug"
-        },
-        {
-            "name": "Release",
-            "configurePreset": "Release-x64",
-            "configuration": "Release"
+            "name": "release-x64",
+            "configurePreset": "release-x64",
+            "displayName": "Release/x64"
         }
     ]
 }
