@@ -1,8 +1,3 @@
-# ==========================================================
-# C/C++
-# ==========================================================
-
-# Compiled Object files
 *.d
 *.elf
 *.gch
@@ -13,7 +8,6 @@
 *.pch
 *.slo
 
-# Debug files
 *.dSYM/
 *.dwo
 *.idb
@@ -21,7 +15,6 @@
 *.su
 *.stackdump
 
-# Executables
 *.app
 *.exe
 *.hex
@@ -29,26 +22,22 @@
 *.out
 *.x86_64
 
-# Fortran module files
 *.mod
 *.mod*
 *.smod
 
-# Kernel Module Compile Results
 .tmp_versions/
 dkms.conf
 Mkfile.old
 Module.symvers
 modules.order
 
-# Linker files and output
 *.exp
 *.ilk
 *.la
 *.lai
 *.map
 
-# Shared libraries / Dynamic link libraries
 *.a
 *.dll
 *.dylib
@@ -56,16 +45,10 @@ modules.order
 *.so
 *.so.*
 
-# ==========================================================
-# CMake
-# ==========================================================
-
-# CMake build directories
 /[Bb]uild*/
 /[Cc][Mm]ake-[Bb]uild*/
 /[Oo]ut/
 
-# CMake files
 CMakeCache.txt
 CMakeFiles/
 CMakeLists.txt.user
@@ -79,15 +62,9 @@ compile_commands.json
 install_manifest.txt
 Makefile
 
-# ==========================================================
-# JetBrains IDE
-# ==========================================================
-
-# JetBrains IDE directories
 .idea/
 .idea/**
 
-# User-specific files
 .idea/**/aws.xml
 .idea/**/contentModel.xml
 .idea/**/dictionaries
@@ -96,7 +73,6 @@ Makefile
 .idea/**/usage.statistics.xml
 .idea/**/workspace.xml
 
-# Sensitive or high-churn files
 .idea/**/dataSources/
 .idea/**/dataSources.ids
 .idea/**/dataSources.local.xml
@@ -105,11 +81,9 @@ Makefile
 .idea/**/sqlDataSources.xml
 .idea/**/uiDesigner.xml
 
-# Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
 
-# Other JetBrains files
 .idea/.cache/.Apifox_Helper
 .idea/ApifoxUploaderProjectSetting.xml
 .idea/caches/build_file_checksums.ser
@@ -128,20 +102,10 @@ fabric.properties
 http-client.private.env.json
 out/
 
-# ==========================================================
-# Ninja
-# ==========================================================
-
-# Ninja build files
 .ninja_deps
 .ninja_log
 *.ninja
 
-# ==========================================================
-# Visual Studio
-# ==========================================================
-
-# Visual Studio directories
 .vs/
 .vs/**
 [Bb]in/
@@ -156,7 +120,6 @@ x86/
 bld/
 ipch/
 
-# Visual Studio files
 *.aps
 *.ncb
 *.opendb
@@ -171,7 +134,6 @@ ipch/
 *.vssscc
 *.scc
 
-# Visual Studio temporary files
 *.suo
 *.user
 *.userosscache
@@ -180,15 +142,9 @@ ipch/
 *.vc.db-shm
 *.vc.db-wal
 
-# ==========================================================
-# Visual Studio Code
-# ==========================================================
-
-# VS Code directories
 .vscode/
 .vscode/**
 
-# Keep specific VS Code files if needed
 !.vscode/*.code-snippets
 !.vscode/extensions.json
 !.vscode/launch.json
@@ -196,14 +152,8 @@ ipch/
 !.vscode/tasks.json
 !*.code-workspace
 
-# VS Code files
 *.vsix
 
-# ==========================================================
-# Windows specific
-# ==========================================================
-
-# Windows thumbnail cache files
 $RECYCLE.BIN/
 [Dd]esktop.ini
 ehthumbs.db
@@ -211,20 +161,13 @@ ehthumbs_vista.db
 Thumbs.db
 Thumbs.db:encryptable
 
-# Windows Installer files
 *.cab
 *.msi
 *.msix
 *.msm
 *.msp
 
-# Windows shortcuts
 *.lnk
 
-# ==========================================================
-# Binaries directory
-# ==========================================================
-
-# Generated binary output
 /[Bb]inaries/
 /[Bb]inaries/**

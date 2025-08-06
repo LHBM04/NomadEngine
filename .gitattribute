@@ -1,14 +1,10 @@
-# 모든 텍스트 파일은 LF로 통일 (Windows ↔ Linux 호환)
 * text=auto eol=lf
 
-# 이미지나 바이너리 파일은 diff 제외
 *.png binary
 *.jpg binary
 *.fbx binary
 *.exe binary
 
-# 특정 파일은 병합 시 'ours' 전략 고정
 *.lock merge=ours
 
-# GitHub 언어 감지 튜닝 (C++ 헤더를 제대로 인식하도록)
 *.h linguist-language=C++
