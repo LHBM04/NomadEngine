@@ -14,9 +14,10 @@ namespace NomadEngine::Runtime
      *
      * @brief OpenGL 렌더링 서버를 구현합니다.
      */
-    class RenderingServer_GL : public IRenderingServer
+    class RenderingServer_GL
+        : public IRenderingServer
     {
-      public:
+    public:
         /**
          * @brief 생성자.
          */
@@ -29,14 +30,14 @@ namespace NomadEngine::Runtime
 
         /**
          * @brief OpenGL 렌더링 서버를 초기화합니다.
-         *
+         * 
          * @param descriptor_ 렌더링 시스템의 설정 기술.
          *
          * @return bool 성공하면 true, 실패하면 false를 반환합니다.
          */
-        virtual bool Initialize(const RenderingServerDescriptor &descriptor_) override;
+        virtual bool Initialize(const RenderingServerDescriptor& descriptor_) override;
 
-        /**
+         /**
          * @brief 렌더링이 시작되기 전 호출됩니다.
          */
         virtual void PreRender() override;
@@ -51,6 +52,6 @@ namespace NomadEngine::Runtime
          */
         virtual bool Finalize() override;
     };
-} // namespace NomadEngine::Runtime
+}
 
 #endif // !GUARD_RENDERINGSERVER_GL_H

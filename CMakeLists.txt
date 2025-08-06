@@ -91,15 +91,15 @@ target_link_libraries(ImGui INTERFACE
 # ================================================
 # Source Files Collection
 # ================================================
-# Temporarily exclude Runtime sources and build Editor only
+# 임시로 에디터만 빌드하도록 Runtime 소스 제외
 # file(GLOB_RECURSE RUNTIME_SOURCES "Sources/Runtime/*.cpp" "Sources/Runtime/*.h")
 file(GLOB_RECURSE EDITOR_SOURCES "Sources/Editor/*.cpp" "Sources/Editor/*.h")
 
-# Include essential Runtime headers only
+# 필수 Runtime 헤더만 포함 
 file(GLOB_RECURSE RUNTIME_HEADERS "Sources/Runtime/*.h")
 
 # ================================================
-# Runtime Library Target (Temporarily disabled)
+# Runtime Library Target (임시 비활성화)
 # ================================================
 # add_library(NomadEngine_Runtime STATIC ${RUNTIME_SOURCES})
 # target_include_directories(NomadEngine_Runtime
@@ -120,14 +120,14 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    # NomadEngine_Runtime  # Temporarily disabled
+    # NomadEngine_Runtime  # 임시 비활성화
     DirectX
     DirectXMath
     DirectXMesh
     DirectXTex
     SDL3
     ImGui
-    opengl32  # Windows OpenGL library
+    opengl32  # Windows OpenGL 라이브러리 추가
     $<$<CONFIG:Debug>:glew32d>
     $<$<CONFIG:Release>:glew32>
     $<$<CONFIG:Debug>:freetyped>
@@ -141,10 +141,10 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 )
 
 # ================================================
-# Precompiled Headers Configuration (Disabled)
+# Precompiled Headers Configuration (비활성화)
 # ================================================
 # if(CMAKE_VERSION VERSION_GREATER_EQUAL "3.16")
-#     # Runtime PCH (Temporarily disabled)
+#     # Runtime PCH (임시 비활성화)
 #     # target_precompile_headers(NomadEngine_Runtime PRIVATE Sources/Runtime/RuntimePCH.h)
 
 #     # Editor PCH
