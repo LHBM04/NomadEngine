@@ -1,5 +1,5 @@
-#ifndef GUARD_SINGLETONBASE_H
-#define GUARD_SINGLETONBASE_H
+#ifndef RUNTIME_SINGLETONBASE_H
+#define RUNTIME_SINGLETONBASE_H
 
 namespace NomadEngine::Runtime
 {
