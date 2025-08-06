@@ -1,5 +1,5 @@
-#ifndef GUARD_TYPES_H
-#define GUARD_TYPES_H
+#ifndef RUNTIME_TYPES_H
+#define RUNTIME_TYPES_H
 
 #include <cstddef>
 #include <cstdint>
@@ -9,7 +9,7 @@ namespace NomadEngine::Runtime
 {
     using Void      = void;
 
-    using Bool     = bool;
+    using Bool      = bool;
     using Bool8     = uint8_t;
     using Bool16    = uint16_t;
 

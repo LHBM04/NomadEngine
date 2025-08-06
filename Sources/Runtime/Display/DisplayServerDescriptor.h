@@ -1,7 +1,8 @@
-#ifndef GUARD_DISPLAYSERVERDESCRIPTOR_H
-#define GUARD_DISPLAYSERVERDESCRIPTOR_H
+#ifndef RUNTIME_DISPLAYSERVERDESCRIPTOR_H
+#define RUNTIME_DISPLAYSERVERDESCRIPTOR_H
 
-#include "../Runtime/Common/Defines.h"
+#include <string_view>
+
 #include "../Runtime/Common/Types.h"
 
 namespace NomadEngine::Runtime
@@ -58,6 +59,6 @@ namespace NomadEngine::Runtime
          */
         Bool isBorderless;
     };
-}
+} // namespace NomadEngine::Runtime
 
-#endif // !GUARD_DISPLAYSERVERDESCRIPTOR_H
+#endif
