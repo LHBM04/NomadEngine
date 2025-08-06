@@ -16,7 +16,7 @@ Checks: >
 
 WarningsAsErrors: '*'
 
-HeaderFilterRegex: '.*'
+HeaderFilterRegex: '^(Sources/Runtime|Sources/Editor)/'
 
 CheckOptions:
   - key:             readability-identifier-naming.ClassCase
@@ -44,7 +44,7 @@ CheckOptions:
   - key:             readability-identifier-naming.PrivateMemberPrefix
     value:           m
   - key:             readability-identifier-naming.ProtectedMemberPrefix
-    value:           p
+    value:           m
 
   - key:             cppcoreguidelines-explicit-virtual-functions.CheckExplicitVirtualDestructor
     value:           1

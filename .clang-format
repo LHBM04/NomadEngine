@@ -1,41 +1,52 @@
-# .clang-format
+BasedOnStyle: LLVM
+Language: Cpp
 
-BasedOnStyle: Google
 IndentWidth: 4
 TabWidth: 4
 UseTab: Never
-
-ColumnLimit: 120
-BreakBeforeBraces: Allman
-
-AllowShortIfStatementsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: None # 한 줄 함수도 여러 줄로 강제
-AllowShortLoopsOnASingleLine: false
-
-DerivePointerAlignment: false
-PointerAlignment: Right
-
-AlignAfterOpenBracket: Align
-AlignConsecutiveAssignments: true
-AlignConsecutiveDeclarations: true
-
-SortIncludes: false
-IncludeBlocks: Preserve
-
-SpaceBeforeParens: ControlStatements
-
-AlwaysBreakAfterReturnType: All # 반환 타입 뒤 항상 줄바꿈
-BinPackParameters: false
-BinPackArguments: false
-
-ConstructorInitializerAllOnOneLineOrOnePerLine: false # 항상 한 줄에 하나씩
-Cpp11BracedListStyle: true
-
 NamespaceIndentation: All
 
-# 추가: 자동완성/포맷 시 공백 및 배치 문제 방지용
-SpacesInParentheses: false
-SpacesInSquareBrackets: false
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignOperands: true
+AlignTrailingComments: true
+QualifierAlignment: Left
+
+BreakBeforeBraces: Allman
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeElse: true
+  IndentBraces: false
+
+AlwaysBreakAfterReturnType: TopLevel
+AllowShortIfStatementsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortBlocksOnASingleLine: false
+
+SortIncludes: true
+IncludeBlocks: Preserve
+IncludeCategories:
+  - Regex:           '^<.*\.h>'
+    Priority:        1
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '^".*"' 
+    Priority:        2
+IncludeIsMainRegex: '([-_](test|unittest))?$'
+
+SortUsingDeclarations: true
+
 SpacesInAngles: false
-SpaceInEmptyParentheses: false
-SpaceBeforeAssignmentOperators: true
+SpacesInSquareBrackets: false
+SpaceAfterCStyleCast: true
+SpaceBeforeParens: ControlStatements
+
+ColumnLimit: 120
+ReflowComments: true
+Cpp11BracedListStyle: true
